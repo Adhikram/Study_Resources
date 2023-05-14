@@ -22,9 +22,4 @@ public class Dice {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        Dice dice = new Dice(2, 6);
-        System.out.println(dice.roll());
-    }
 }

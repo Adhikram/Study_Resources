@@ -11,7 +11,7 @@ public class Game {
     private Dice dice;
     private Queue<Player> players = new LinkedList<>();
 
-    private Game(){
+    private Game() {
         initializeGame();
     }
 
@@ -24,28 +24,35 @@ public class Game {
     private void addPlayers(int count) {
         System.out.println("Setting players");
         int temp = 0;
-        while(temp++ < count){
+        while (temp++ < count) {
             System.out.println("Getting Details of Player " + temp);
             players.add(new Player("Player " + String.valueOf(temp), 0));
         }
 
     }
 
-    private void startGame(){
-        while(winner == null){
+    private void startGame() {
+        while (winner == null) {
             Player player = players.poll();
             int dice_value = dice.roll();
+            assert player != null;
             int new_position = player.getPosition() + dice_value;
-            if( new_position > this.board.getBoardSize() - 1){
+            if (new_position > this.board.getBoardSize() - 1) {
                 // Player will not move for this turn
+                System.out.println("Missed a turn for " + player.getName() + " as new position " + new_position
+                        + " is greater than board size " + (this.board.getBoardSize() - 1));
                 new_position = player.getPosition();
+            } else {
+                int final_position = this.board.getFinalePosition(new_position);
+                System.out.println("MOVE->>>> " + player.getName() + " rolled a " + dice_value + " and moved from "
+                        + player.getPosition() + " to " + final_position);
+                player.setPosition(final_position);
+                if (final_position == this.board.getBoardSize() - 1) {
+                    winner = player.getName();
+                }
+
             }
-            int final_position = this.board.getFinalePosition(new_position);
-            System.out.println("MOVE->>>> " + player.getName() + " rolled a " + dice_value + " and moved from " + player.getPosition() + " to " + final_position);
-            player.setPosition(final_position);
-            if(final_position == this.board.getBoardSize() - 1){
-                winner = player.getName();
-            }
+
             players.add(player);
 
         }

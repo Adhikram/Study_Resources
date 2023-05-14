@@ -32,28 +32,28 @@ public class Board {
         System.out.println("Setting snakes and ladders");
         while (snake_count-- > 0) {
             // System.out.println("Setting snakes" + snake_count);
-            int start = (int) (Math.random() * getBoardSize()) + 1;
-            int end = (int) (Math.random() * getBoardSize()) + 1;
+            int start = (int) (Math.random() * (getBoardSize() - 2)) + 1;
+            int end = (int) (Math.random() *(getBoardSize() - 2)) + 1;
             if (start <= end || jump_mapper.containsKey(String.valueOf(start))) {
                 snake_count++;
                 continue;
             }
 
             jump_mapper.put(String.valueOf(start), 1);
-            cells[start / row_count][start % row_count].setJump(new Jump(start, end));
+            cells[start / row_count][start % row_count].setJump(new Jump(end));
         }
 
         while (ladder_count-- > 0) {
             // System.out.println("Setting ladders" + ladder_count);
-            int start = (int) (Math.random() * getBoardSize()) + 1;
-            int end = (int) (Math.random() * getBoardSize()) + 1;
+            int start = (int) (Math.random() * (getBoardSize() - 2)) + 1;
+            int end = (int) (Math.random() * (getBoardSize() - 2)) + 1;
             if (start >= end || jump_mapper.containsKey(String.valueOf(start))) {
                 ladder_count++;
                 continue;
             }
 
             jump_mapper.put(String.valueOf(start), 1);
-            cells[start / row_count][start % row_count].setJump(new Jump(start, end));
+            cells[start / row_count][start % row_count].setJump(new Jump(end));
         }
 
     }

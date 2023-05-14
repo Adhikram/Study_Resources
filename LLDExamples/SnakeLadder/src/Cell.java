@@ -3,7 +3,6 @@
  * @created : 5/14/2023, Sunday
  **/
 public class Cell {
-    private int row;
     private Jump jump;
 
     public Jump getJump() {
