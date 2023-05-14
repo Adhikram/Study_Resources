@@ -41,7 +41,6 @@ public class Game {
                 // Player will not move for this turn
                 System.out.println("Missed a turn for " + player.getName() + " as new position " + new_position
                         + " is greater than board size " + (this.board.getBoardSize() - 1));
-                new_position = player.getPosition();
             } else {
                 int final_position = this.board.getFinalePosition(new_position);
                 System.out.println("MOVE->>>> " + player.getName() + " rolled a " + dice_value + " and moved from "
