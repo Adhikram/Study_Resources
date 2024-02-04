@@ -1,8 +1,9 @@
+package DataStructures;
 import java.util.ArrayList;
 
 // Class Structure
 public class ArrayListExample {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
     ArrayList<Integer> arrayList = new ArrayList<>();
 
     // Insertion (static)
@@ -28,6 +29,3 @@ public class ArrayListExample {
     System.out.println(arrayList); // [4]
   }
 }
-
-
-

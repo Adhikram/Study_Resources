@@ -1,5 +1,9 @@
+package DataStructures;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Array {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
     int[] array = new int[3];
     array[0] = 1;
     array[1] = 2;
@@ -40,5 +44,16 @@ public class Array {
     }
     array = anotherArray;
     System.out.println(array);
+
+    Arrays.sort(array);
+    Arrays.sort(array, (a, b) -> Integer.compare(b, a));
+    // Custom Sort
+    Arrays.sort(intervals, (a, b) -> {
+      if (a[0] == b[0]) {
+        return b[1] - a[1];
+      } else {
+        return a[0] - b[0];
+      }
+    });
   }
 }
