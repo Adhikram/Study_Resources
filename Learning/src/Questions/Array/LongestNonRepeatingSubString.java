@@ -3,26 +3,25 @@ package Questions.Array;
 import java.util.HashMap;
 
 public class LongestNonRepeatingSubString {
-        public int lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstring(String s) {
         HashMap<Character, Integer> hash = new HashMap<>();
-        int result = -1;
+        int result = 0;
+        int start = 0;
 
-        for(Char ch: s.toCharArray()){
-            if(hash.containsKey(ch)){
-                result = Math.max(result, hash.size());
-                hash.clear();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (hash.containsKey(ch)) {
+                start = Math.max(start, hash.get(ch) + 1);
             }
-            hash.put(ch, 1);
+            hash.put(ch, i);
+            result = Math.max(result, i - start + 1);
         }
 
-        if(result == -1){
-            return s.length();
-        }else{
-            return result;
-        }
+        return result;
     }
+
     public static void main(String[] args) {
         LongestNonRepeatingSubString longestNonRepeatingSubString = new LongestNonRepeatingSubString();
-        System.out.println(longestNonRepeatingSubString.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(longestNonRepeatingSubString.lengthOfLongestSubstring("abcabcdb"));
     }
 }
