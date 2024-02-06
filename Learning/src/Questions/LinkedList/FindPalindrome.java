@@ -1,6 +1,6 @@
 package Questions.LinkedList;
 
-public class FindPalindrom {
+public class FindPalindrome {
     public class ListNode {
         int val;
         ListNode next;
@@ -19,7 +19,6 @@ public class FindPalindrom {
     }
 
     public boolean isPalindrome(ListNode head) {
-        ListNode head1 = head;
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
@@ -51,14 +50,14 @@ public class FindPalindrom {
     }
 
     public static void main(String[] args) {
-        FindPalindrom palindrom = new FindPalindrom();
-        ListNode head = palindrom.new ListNode(1);
-        head.next = palindrom.new ListNode(2);
-        head.next.next = palindrom.new ListNode(3);
-        head.next.next.next = palindrom.new ListNode(4);
-        head.next.next.next.next = palindrom.new ListNode(3);
-        head.next.next.next.next.next = palindrom.new ListNode(2);
-        head.next.next.next.next.next.next = palindrom.new ListNode(1);
-        System.out.println(palindrom.isPalindrome(head));
+        FindPalindrome palindrome = new FindPalindrome();
+        ListNode head = palindrome.new ListNode(1);
+        head.next = palindrome.new ListNode(2);
+        head.next.next = palindrome.new ListNode(3);
+        head.next.next.next = palindrome.new ListNode(4);
+        head.next.next.next.next = palindrome.new ListNode(3);
+        head.next.next.next.next.next = palindrome.new ListNode(2);
+        head.next.next.next.next.next.next = palindrome.new ListNode(1);
+        System.out.println(palindrome.isPalindrome(head));
     }
 }

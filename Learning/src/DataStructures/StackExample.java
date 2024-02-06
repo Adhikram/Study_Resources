@@ -1,4 +1,5 @@
 package DataStructures;
+
 import java.util.Stack;
 
 public class StackExample {
@@ -44,7 +45,7 @@ public class StackExample {
             int element = iterator.next();
             System.out.println("Element: " + element);
         }
-        
+
         // Alternatively, use forEach method (Java 8 and later)
         System.out.println("\nIterating using forEach method:");
         stack.forEach(element -> System.out.println("Element: " + element));

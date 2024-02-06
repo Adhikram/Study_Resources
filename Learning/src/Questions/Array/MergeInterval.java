@@ -1,4 +1,4 @@
-// File: Questions/MergeInterval.java
+// File: questions/MergeInterval.java
 package Questions.Array;
 
 import java.util.ArrayList;

@@ -1,7 +1,5 @@
 package Questions.LinkedList;
 
-import Questions.LinkedList.FindMiddleElement.ListNode;
-
 public class Reverse {
 
     public class ListNode {
