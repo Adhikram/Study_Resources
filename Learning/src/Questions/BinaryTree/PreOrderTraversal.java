@@ -1,12 +1,10 @@
-package BinaryTree;
+package Questions.BinaryTree;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import javax.swing.tree.TreeNode;
-
-public class InOrderTraversal {
+public class PreOrderTraversal {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -17,24 +15,21 @@ public class InOrderTraversal {
         }
 
     }
-
-    
-
-    public List<Integer> inOrderTraversal(TreeNode root) {
-
+    public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> st = new Stack<>();
-        while (root != null || st.size() != 0) {
+
+        while (root != null || !st.isEmpty()) {
             while (root != null) {
+                result.add(root.val);  // Process the current node
                 st.push(root);
                 root = root.left;
             }
 
-            root = st.peek();
-            st.pop();
-            result.add(root.val);
+            root = st.pop();
             root = root.right;
         }
+
         return result;
     }
     public static void main(String[] args) {
@@ -43,8 +38,8 @@ public class InOrderTraversal {
         TreeNode rightLeft = new TreeNode(3);
         root.right = right;
         right.left = rightLeft;
-        InOrderTraversal inOrderTraversal = new InOrderTraversal();
-        List<Integer> result = inOrderTraversal.inOrderTraversal(root);
-        System.out.println("InOrder Traversal: " + result);
+        PreOrderTraversal preOrderTracersal = new PreOrderTraversal();
+        List<Integer> result = preOrderTracersal.preorderTraversal(root);
+        System.out.println("PreOrder Traversal: " + result);
     }
 }

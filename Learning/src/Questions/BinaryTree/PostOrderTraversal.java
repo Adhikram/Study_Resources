@@ -1,4 +1,4 @@
-package BinaryTree;
+package Questions.BinaryTree;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package BinaryTree;
+package Questions.BinaryTree;
 
 public class Height {
     public static class TreeNode {
