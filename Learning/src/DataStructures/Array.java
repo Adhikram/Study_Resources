@@ -1,10 +1,12 @@
 package DataStructures;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class Array {
   public static void main(String[] args) {
     int[] array = new int[3];
+    List<Integer>[] adj = new List[3];
     array[0] = 1;
     array[1] = 2;
     array[2] = 3;

@@ -23,6 +23,15 @@ public class PriorityQueueExample {
         PriorityQueue<Integer> lambdaPriorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2, o1));
         addElements(lambdaPriorityQueue, "Lambda");
         printElements(lambdaPriorityQueue);
+        PriorityQueue<Integer> lambdaPriorityQueue2 = new PriorityQueue<>((o1, o2) -> {
+            if (o1 % 2 == 0 && o2 % 2 != 0) {
+                return -1;
+            } else if (o1 % 2 != 0 && o2 % 2 == 0) {
+                return 1;
+            } else {
+                return o1 - o2;
+            }
+        });
     }
 
     // Helper method to add elements to the PriorityQueue

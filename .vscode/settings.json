@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "nums"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }

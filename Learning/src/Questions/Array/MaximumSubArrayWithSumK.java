@@ -12,6 +12,9 @@ public class MaximumSubArrayWithSumK {
         for (int i = 0; i < n; i++) {
             // System.out.println(nums[i] + " Pre- " + prefixSum);
             prefixSum += nums[i];
+            if(prefixSum == k){
+                result = i + 1;
+            }
             if (hash.containsKey(prefixSum - k)) {
                 // System.out.println(" PrefixSum: " + prefixSum + " " + (prefixSum - k) + " " +
                 // i + " " + hash.get(prefixSum - k));
