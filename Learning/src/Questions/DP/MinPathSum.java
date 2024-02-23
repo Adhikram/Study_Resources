@@ -32,6 +32,14 @@ public class MinPathSum {
         // Call the helper function starting from the bottom-right cell
         return minSumPathUtilRecursive(n - 1, m - 1, matrix, dp);
     }
+    // Time Complexity: O(N*M)
+
+    // Reason: At max, there will be N*M calls of recursion.
+
+    // Space Complexity: O((M-1)+(N-1)) + O(N*M)
+
+    // Reason: We are using a recursion stack space: O((M-1)+(N-1)), here
+    // (M-1)+(N-1) is the path length and an external DP Array of size ‘N*M’.
 
     static int minSumPathDP(int n, int m, int[][] matrix) {
         int dp[][] = new int[n][m];
@@ -63,6 +71,14 @@ public class MinPathSum {
         // The final result is stored in the bottom-right cell of the DP matrix
         return dp[n - 1][m - 1];
     }
+
+    // Time Complexity: O(N*M)
+
+    // Reason: There are two nested loops
+
+    // Space Complexity: O(N*M)
+
+    // Reason: We are using an external array of size ‘N*M’’.
 
     static int minSumPathOptimizedDP(int n, int m, int[][] matrix) {
         // Initialize an array to store the previous row values
@@ -99,10 +115,18 @@ public class MinPathSum {
         // The final result is stored in the last element of the previous row
         return prev[m - 1];
     }
+    // Time Complexity: O(M*N)
+
+    // Reason: There are two nested loops
+
+    // Space Complexity: O(N)
+
+    // Reason: We are using an external array of size ‘N’ to store only one row.
 
     public static void main(String[] args) {
         int[][] matrix = { { 1, 3, 1 }, { 1, 5, 1 }, { 4, 2, 1 } };
         System.out.println(minSumPathRecursive(3, 3, matrix));
         System.out.println(minSumPathOptimizedDP(3, 3, matrix));
+        System.out.println(minSumPathDP(3, 3, matrix));
     }
 }
