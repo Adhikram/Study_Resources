@@ -2,14 +2,14 @@
 SELECT train_id,
     station,
     time as "station_time",
-    time - min(time) OVER (
+    EXTRACT(EPOCH FROM (time - min(time) OVER (
         PARTITION BY train_id
         ORDER BY time
-    ) AS elapsed_travel_time,
-    lead(time) OVER (
+    ))) AS elapsed_travel_time,
+    EXTRACT(EPOCH FROM (lead(time) OVER (
         PARTITION BY train_id
         ORDER BY time
-    ) - time AS time_to_next_station
+    ) - time)) AS time_to_next_station
 FROM train_schedule;
 --  Output
 --  train_id  station  station_time  elapsed_travel_time  time_to_next_station

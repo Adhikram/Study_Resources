@@ -22,6 +22,9 @@ public class GetIntersection {
         ListNode aPointer = headA;
         ListNode bPointer = headB;
         while (aPointer != null || bPointer != null) {
+            if(aPointer == bPointer){
+                return aPointer;
+            }
             if (aPointer == null) {
                 aPointer = headB;
             } else {

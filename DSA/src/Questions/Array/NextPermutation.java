@@ -38,7 +38,7 @@ public class NextPermutation {
         nums[break2] = temp;
 
         System.out.println(Arrays.toString(nums));
-        // Reverse the Break1 to break2
+        // Reverse the Break1 to n
         int left = break1 + 1;
         int right = n - 1;
         while (left < right) {
@@ -52,11 +52,11 @@ public class NextPermutation {
     }
 
     public static void main(String[] args) {
-        int[] array = new int[] { 1, 2, 3 };
+        int[] array = new int[] { 1, 2, 3, 4 , 6 };
         nextPermutation(array);
-        for (int element : array) {
-            System.out.println(element);
-        }
+        // for (int element : array) {
+        //     System.out.println(element);
+        // }
 
     }
 }

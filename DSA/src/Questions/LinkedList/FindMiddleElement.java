@@ -21,8 +21,12 @@ public class FindMiddleElement {
     public ListNode middleNode(ListNode head) {
         ListNode slow = head, fast = head;
         while (fast != null && fast.next != null) {
-            slow = slow.next;
+            System.out.println(slow.val + " " + fast.val);
             fast = fast.next.next;
+            if(fast == null){
+                return slow;
+            }
+            slow = slow.next;
         }
         return slow;
     }
@@ -34,7 +38,7 @@ public class FindMiddleElement {
         head.next.next = findMiddleElement.new ListNode(3);
         head.next.next.next = findMiddleElement.new ListNode(4);
         head.next.next.next.next = findMiddleElement.new ListNode(5);
-        head.next.next.next.next.next = findMiddleElement.new ListNode(6);
+        // head.next.next.next.next.next = findMiddleElement.new ListNode(6);
         System.out.println(findMiddleElement.middleNode(head).val);
     }
 }

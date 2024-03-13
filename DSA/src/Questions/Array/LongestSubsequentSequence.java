@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 public class LongestSubsequentSequence {
     public int traverse(HashMap<Integer, Boolean> hash, int num, int op) {
-        System.out.println(num + " " + op);
-        hash.forEach( (k, v) -> System.out.print(k + " " + v + " || "));
-        System.out.println("");
+        // System.out.println(num + " " + op);
+        // hash.forEach( (k, v) -> System.out.print(k + " " + v + " || "));
+        // System.out.println("");
         int count = 0;
         while (hash.getOrDefault(num, false)) {
             hash.put(num, false);

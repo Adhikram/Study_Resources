@@ -11,7 +11,7 @@ public class TrapRainWater {
             lMax = Math.max(lMax, height[left]);
             rMax = Math.max(rMax, height[right]);
             // If the current Tower is the max we will not get water from here
-            // we need the water mergin from the smaller tower to the present tower
+            // we need the water margin from the smaller tower to the present tower
             result += (lMax < rMax) ? lMax - height[left++] : rMax - height[right--];
         }
         return result;

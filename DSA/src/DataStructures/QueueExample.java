@@ -30,6 +30,7 @@ public class QueueExample {
         // Add more elements
         queue.add(2);
         queue.add(3);
+        System.out.println("Is the queue empty? " + queue.isEmpty());
 
 
         // Length (Size)

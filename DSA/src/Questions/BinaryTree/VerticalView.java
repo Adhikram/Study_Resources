@@ -45,7 +45,7 @@ public class VerticalView {
         int index = 0;
         while (q.size() != 0) {
             int size = q.size();
-            // Need Levelhash to get the Level's data
+            // Need Level hash to get the Level's data
             HashMap<Integer, List<Integer>> lvlHash = new HashMap<>();
             for (int i = 0; i < size; i++) {
                 temp = q.poll();

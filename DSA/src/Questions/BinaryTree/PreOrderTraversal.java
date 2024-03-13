@@ -15,7 +15,7 @@ public class PreOrderTraversal {
         }
 
     }
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> preOrderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> st = new Stack<>();
 
@@ -39,7 +39,7 @@ public class PreOrderTraversal {
         root.right = right;
         right.left = rightLeft;
         PreOrderTraversal preOrderTracersal = new PreOrderTraversal();
-        List<Integer> result = preOrderTracersal.preorderTraversal(root);
+        List<Integer> result = preOrderTracersal.preOrderTraversal(root);
         System.out.println("PreOrder Traversal: " + result);
     }
 }
