@@ -85,6 +85,8 @@ public class CheapestFlight {
             return -1;
         return dist[dst];
     }
+    // Time complexity: O(n * m), where n is the number of airports and m is the number of flights
+    // Space complexity: O(n)
 
     // Example usage
     public static void main(String[] args) {
