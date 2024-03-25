@@ -4,6 +4,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ValidSudoku {
+
+    public int removeStones(int[][] stones) {
+        int count = 0;
+
+        HashSet<String> seen = new HashSet<>();
+        for(int[] stone : stones){
+            System.out.println("Stone: " + stone[0] + " " + stone[1]);
+            boolean row = seen.add("A stone in row " + stone[0]);
+            boolean column = seen.add("A stone in column " + stone[1]);
+            if (row || column){
+                count ++;
+            }
+            seen.forEach(System.out::println);
+            System.out.println("Count: " + count);
+        }
+        return count;
+    }
     public boolean isValidSudoku(char[][] board) {
         Set<String> seen = new HashSet<>();
         for (int i = 0; i < 9; ++i) {

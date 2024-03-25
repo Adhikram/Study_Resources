@@ -1,15 +1,29 @@
-package Questions.Graph;
-import java.util.*;
+package Questions.Graph.DisjointSetMST;
 
-public class UnionByRank {
+import java.util.ArrayList;
+import java.util.List;
 
+public class DisjointSet {
     List<Integer> rank = new ArrayList<>();
     List<Integer> parent = new ArrayList<>();
-    public UnionByRank(int n) {
+    List<Integer> size = new ArrayList<>();
+
+    public DisjointSet(int n) {
         for (int i = 0; i <= n; i++) {
             rank.add(0);
             parent.add(i);
+            size.add(1);
         }
+    }
+
+    public int getParentCount() {
+        int count = 0;
+        for (int i = 0; i < parent.size(); i++) {
+            if (parent.get(i) == i) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public int findUPar(int node) {
@@ -35,14 +49,23 @@ public class UnionByRank {
             rank.set(ulp_u, rankU + 1);
         }
     }
-    // Precomputing the parent of each node time complexity: O(n)
-    // Time complexity: O(log(n))
-    // Space complexity: O(n)
-    // n = number of nodes
+
+    public void unionBySize(int u, int v) {
+        int ulp_u = findUPar(u);
+        int ulp_v = findUPar(v);
+        if (ulp_u == ulp_v) return;
+        if (size.get(ulp_u) < size.get(ulp_v)) {
+            parent.set(ulp_u, ulp_v);
+            size.set(ulp_v, size.get(ulp_v) + size.get(ulp_u));
+        } else {
+            parent.set(ulp_v, ulp_u);
+            size.set(ulp_u, size.get(ulp_u) + size.get(ulp_v));
+        }
+    }
 
     public static void main(String[] args) {
         int n = 5;
-        UnionByRank u = new UnionByRank(n);
+        DisjointSet u = new DisjointSet(n);
         u.unionByRank(1, 2);
         u.unionByRank(2, 3);
         u.unionByRank(4, 5);
