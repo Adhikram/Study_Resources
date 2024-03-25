@@ -98,7 +98,7 @@ public class PalindromePartitioning {
     // Reason: O(N) is for the dp array we have used.
 
     public static void main(String[] args) {
-        String str = "aabbaa";
+        String str = "aabaa";
         System.out.println(palindromePartitioningRecursive(str));
         System.out.println(palindromePartitioningMemoization(str));
         System.out.println(palindromePartitioningTabulation(str));
