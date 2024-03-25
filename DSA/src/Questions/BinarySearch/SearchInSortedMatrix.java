@@ -1,4 +1,4 @@
-package Questions.Array;
+package Questions.BinarySearch;
 
 public class SearchInSortedMatrix {
     public static boolean searchMatrix(int[][] matrix, int target) {

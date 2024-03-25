@@ -1,7 +1,7 @@
-package Questions.Array;
+package Questions.BinarySearch;
 
-public class SearchInRotatedSortedArray {
-    public int search(int[] nums, int target) {
+public class SearchInRotatedSortedArray2 {
+    public static int search(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
 
@@ -10,6 +10,13 @@ public class SearchInRotatedSortedArray {
 
             if (nums[mid] == target) {
                 return mid;
+            }
+
+            // Edge case:
+            if (nums[start] == nums[mid] && nums[mid] == nums[end]) {
+                start = start + 1;
+                end = end - 1;
+                continue;
             }
 
             // We need to find the sorted half because BS can only runs on the Sorted part
@@ -34,11 +41,14 @@ public class SearchInRotatedSortedArray {
         }
         return -1;
     }
+    /*
+     * Time Complexity: O(logN) for the best and average case. O(N/2) for the worst
+     * case. Here, N = size of the given array.
+     */
     public static void main(String[] args) {
-        SearchInRotatedSortedArray searchInRotatedSortedArray = new SearchInRotatedSortedArray();
-        int[] nums = {4,5,6,7,0,1,2};
+        int[] nums = { 2, 5, 6, 0, 0, 1, 2 };
         int target = 0;
-        int result = searchInRotatedSortedArray.search(nums, target);
+        int result = search(nums, target);
         System.out.println("Index of the target: " + result);
     }
 }
