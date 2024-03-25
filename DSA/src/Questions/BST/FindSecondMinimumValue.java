@@ -1,16 +1,8 @@
 package Questions.BST;
 
+import Questions.BinaryTree.TreeNode;
+
 public class FindSecondMinimumValue {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-    }
 
     public int findSecondMinimumValue(TreeNode root) {
         if (root == null)

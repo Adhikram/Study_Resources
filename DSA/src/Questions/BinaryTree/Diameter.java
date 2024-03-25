@@ -1,16 +1,6 @@
 package Questions.BinaryTree;
 
 public class Diameter {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-    }
 
     public int maxDepth(TreeNode root, int[] d) {
         if (root == null) {

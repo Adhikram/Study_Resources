@@ -1,17 +1,8 @@
 package Questions.BST;
 
+import Questions.BinaryTree.TreeNode;
+
 public class KthSmallestElement {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-    }
-
     public int inOrder(TreeNode root, int[] k) {
         if (root == null)
             return -1;

@@ -1,30 +1,23 @@
 package Questions.BST;
 
+import Questions.BinaryTree.TreeNode;
+
 public class LowestCommonAncestor {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-    }
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if ( root == null || p == root || q == root){
+        if (root == null || p == root || q == root) {
             return root;
         }
 
         // Go to Left and Right
-        TreeNode a = lowestCommonAncestor( root.left, p, q);
-        TreeNode b = lowestCommonAncestor( root.right, p, q);
+        TreeNode a = lowestCommonAncestor(root.left, p, q);
+        TreeNode b = lowestCommonAncestor(root.right, p, q);
 
-        if(a != null && b != null){
+        if (a != null && b != null) {
             return root;
         }
-        return (b == null)? a: b;
+        return (b == null) ? a : b;
     }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(3);
         TreeNode left = new TreeNode(5);

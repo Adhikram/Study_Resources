@@ -8,17 +8,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class VerticalView {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-    }
-
     public static class Pair<K, V> {
         private K key;
         private V value;

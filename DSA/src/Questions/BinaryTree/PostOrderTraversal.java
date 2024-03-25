@@ -5,18 +5,8 @@ import java.util.List;
 import java.util.Stack;
 
 public class PostOrderTraversal {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
-        }
-
-    }
-
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postOrderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> st = new Stack<>();
         TreeNode lastVisited = null;
@@ -50,7 +40,7 @@ public class PostOrderTraversal {
         root.right = right;
         right.left = rightLeft;
         PostOrderTraversal postOrderTraversal = new PostOrderTraversal();
-        List<Integer> result = postOrderTraversal.postorderTraversal(root);
+        List<Integer> result = postOrderTraversal.postOrderTraversal(root);
         System.out.println("PostOrder Traversal: " + result);
     }
 }

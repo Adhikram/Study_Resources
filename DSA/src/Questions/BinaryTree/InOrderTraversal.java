@@ -4,21 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import javax.swing.tree.TreeNode;
-
 public class InOrderTraversal {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-    }
-
-    
 
     public List<Integer> inOrderTraversal(TreeNode root) {
 
@@ -37,6 +23,7 @@ public class InOrderTraversal {
         }
         return result;
     }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode right = new TreeNode(2);
