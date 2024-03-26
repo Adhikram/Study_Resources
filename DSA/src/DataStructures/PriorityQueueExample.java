@@ -23,6 +23,7 @@ public class PriorityQueueExample {
         PriorityQueue<Integer> lambdaPriorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2, o1));
         addElements(lambdaPriorityQueue, "Lambda");
         printElements(lambdaPriorityQueue);
+        // Lambda expression for custom comparison logic with even numbers first and then odd numbers in ascending order
         PriorityQueue<Integer> lambdaPriorityQueue2 = new PriorityQueue<>((o1, o2) -> {
             if (o1 % 2 == 0 && o2 % 2 != 0) {
                 return -1;
@@ -32,7 +33,9 @@ public class PriorityQueueExample {
                 return o1 - o2;
             }
         });
+        lambdaPriorityQueue2.add(3);
     }
+
 
     // Helper method to add elements to the PriorityQueue
     private static void addElements(PriorityQueue<Integer> priorityQueue, String scenario) {

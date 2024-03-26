@@ -44,12 +44,15 @@ public class RootPath {
 
         ArrayList<Integer> arr = new ArrayList<>();
 
-        boolean res;
-        res = getPath(root, arr, 7);
+        boolean res = getPath(root, arr, 7);
 
-        System.out.print("The path is ");
-        for (int it : arr) {
-            System.out.print(it + " ");
+        if (res) {
+            System.out.println("Path is present");
+            for (int it : arr) {
+                System.out.print(it + " ");
+            }
+        } else {
+            System.out.println("Path is not present");
         }
 
     }

@@ -25,16 +25,36 @@ public class LongestSubsequentSequence {
 
         int result = 0;
         for (int num : nums) {
-            int currResult = traverse(hash, num + 1, 1) + traverse(hash, num, -1);
-            System.out.println(currResult + " " + num   + " " + result);
-            result = Math.max(result, currResult);
+            int curResult = traverse(hash, num + 1, 1) + traverse(hash, num, -1);
+            // System.out.println(curResult + " " + num   + " " + result);
+            result = Math.max(result, curResult);
         }
         return result;
     }
+
+    public int longestConsecutiveOptimized(int[] nums) {
+        HashMap<Integer, Boolean> hash = new HashMap<>();
+        for (int num : nums) {
+            hash.put(num, true);
+        }
+
+        int result = 0;
+        for (int num : nums) {
+            if (!hash.getOrDefault(num - 1, false)) {
+                int curResult = traverse(hash, num + 1, 1);
+                result = Math.max(result, curResult + 1);
+            }
+        }
+        return result;
+    }
+    /*
+     * Time complexity: O(n) Space complexity: O(n)
+     */
 
     public static void main(String[] args) {
         int[] nums = new int[] { 100, 4, 200, 1, 3, 2 };
         LongestSubsequentSequence longestSubsequentSequence = new LongestSubsequentSequence();
         System.out.println(longestSubsequentSequence.longestConsecutive(nums));
+        System.out.println(longestSubsequentSequence.longestConsecutiveOptimized(nums));
     }
 }

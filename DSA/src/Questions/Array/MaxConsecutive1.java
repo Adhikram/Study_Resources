@@ -14,6 +14,9 @@ public class MaxConsecutive1 {
         }
         return Math.max(result, count);
     }
+    /*
+     * Time complexity: O(n) where n is the length of the array
+     */
 
     public static void main(String[] args) {
         MaxConsecutive1 maxConsecutive1 = new MaxConsecutive1();

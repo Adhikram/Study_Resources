@@ -19,6 +19,7 @@ public class MergeInterval {
             if (result.isEmpty()) {
                 result.add(interval);
             } else {
+                // Pointing to the last interval from the result
                 int[] lastInterval = result.get(result.size() - 1);
 
                 if (lastInterval[1] >= interval[0]) {

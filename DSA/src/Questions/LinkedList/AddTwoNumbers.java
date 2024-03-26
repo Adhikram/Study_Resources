@@ -23,14 +23,9 @@ public class AddTwoNumbers {
         ListNode head = new ListNode(0);
         ListNode result = head;
         while (l1 != null || l2 != null) {
-            int l1_val = 0;
-            int l2_val = 0;
-            if (l1 != null) {
-                l1_val = l1.val;
-            }
-            if (l2 != null) {
-                l2_val = l2.val;
-            }
+            int l1_val = l1 != null ? l1.val : 0;
+            int l2_val = l2 != null ? l2.val : 0;
+
             int sum = l1_val + l2_val + carry;
             if (sum > 9) {
                 carry = 1;

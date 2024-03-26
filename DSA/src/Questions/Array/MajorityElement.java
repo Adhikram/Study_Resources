@@ -19,6 +19,10 @@ public class MajorityElement {
         return elem;
 
     }
+    /*
+     * Time complexity: O(n) Space complexity: O(1)
+     
+     */
 
     public static void main(String[] args) {
         int[] nums = new int[] { 3, 2, 3 };

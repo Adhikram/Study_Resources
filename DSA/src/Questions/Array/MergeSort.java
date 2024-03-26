@@ -2,7 +2,9 @@ package Questions.Array;
 
 public class MergeSort {
     public static void merge(int[] arr, int l, int m, int r) {
+        // Find the size of two subarrays to be merged
         int n1 = m - l + 1, n2 = r - m;
+        // Create two temporary arrays
         int[] left = new int[n1], right = new int[n2];
         for (int i = 0; i < n1; i++) {
             left[i] = arr[l + i];
@@ -10,6 +12,7 @@ public class MergeSort {
         for (int i = 0; i < n2; i++) {
             right[i] = arr[m + 1 + i];
         }
+        // Merge the two sorted arrays
         int i = 0, j = 0, k = l;
         while (i < n1 && j < n2) {
             if (left[i] <= right[j]) {

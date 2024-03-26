@@ -24,7 +24,7 @@ public class NextPermutation {
             return;
             // Arrays.sort(nums, Comparator.reverseOrder());
         }
-        // After break1 every thing is in decending
+        // After break1 every thing is in descending
         // Trying to find the number just bigger then the break 1 number
         for (int idx = n - 1; idx > 0; idx--) {
             if (nums[break1] < nums[idx]) {
@@ -37,7 +37,7 @@ public class NextPermutation {
         nums[break1] = nums[break2];
         nums[break2] = temp;
 
-        System.out.println(Arrays.toString(nums));
+        // System.out.println(Arrays.toString(nums));
         // Reverse the Break1 to n
         int left = break1 + 1;
         int right = n - 1;
@@ -52,11 +52,9 @@ public class NextPermutation {
     }
 
     public static void main(String[] args) {
-        int[] array = new int[] { 1, 2, 3, 4 , 6 };
+        int[] array = new int[] { 1, 2, 3, 4 , 6, 5, 4, 3 };
+        System.out.println(Arrays.toString(array));
         nextPermutation(array);
-        // for (int element : array) {
-        //     System.out.println(element);
-        // }
-
+        System.out.println(Arrays.toString(array));
     }
 }

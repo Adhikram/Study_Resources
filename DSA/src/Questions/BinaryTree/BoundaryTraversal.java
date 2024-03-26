@@ -2,6 +2,8 @@ package Questions.BinaryTree;
 
 import java.util.ArrayList;
 
+import DataStructures.Array;
+
 public class BoundaryTraversal {
     // Method to check if a node is a leaf node
     static Boolean isLeaf(TreeNode root) {
@@ -57,6 +59,25 @@ public class BoundaryTraversal {
             addLeaves(root.right, res);
     }
 
+    static void addAllInOne(TreeNode root, ArrayList<Integer> leaves, ArrayList<Integer> left, ArrayList<Integer> right) {
+        if (root == null)
+            return;
+        if (isLeaf(root)) {
+            leaves.add(root.val);
+            return;
+        }
+        if (root.left != null)
+            addAllInOne(root.left, leaves, left, right);
+        if (root.right != null)
+            addAllInOne(root.right, leaves, left, right);
+        if (root != null && !isLeaf(root)) {
+            if (root.left != null)
+                right.add(root.val);
+            else
+                left.add(0, root.val);
+        }
+    }
+
     // Method to print the boundary of the binary tree
     static ArrayList<Integer> printBoundary(TreeNode node) {
         ArrayList<Integer> ans = new ArrayList<Integer>();
@@ -70,6 +91,7 @@ public class BoundaryTraversal {
         // Return the result
         return ans;
     }
+
 
     public static void main(String[] args) {
         // Create a binary tree
@@ -87,5 +109,10 @@ public class BoundaryTraversal {
         // Print the boundary of the binary tree
         ArrayList<Integer> result = printBoundary(root);
         System.out.println("Boundary Traversal: " + result);
+        ArrayList<Integer> leaves = new ArrayList<>();
+        ArrayList<Integer> left = new ArrayList<>();
+        ArrayList<Integer> rightList = new ArrayList<>();
+        addAllInOne(root, leaves, left, rightList);
+        System.out.println("Boundary Traversal: " + left + leaves + rightList);
     }
 }

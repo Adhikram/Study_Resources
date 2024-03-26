@@ -46,6 +46,6 @@ public class MakeNetworkConnected {
         int[][] edge = { { 0, 1 }, { 0, 2 }, { 0, 3 }, { 1, 2 }, { 2, 3 }, { 4, 5 }, { 5, 6 }, { 7, 8 } };
 
         int ans = Solve(V, edge);
-        System.out.println("The number of operations needed: " + ans);
+        System.out.println("The number of operations needed: " + ans);// 2
     }
 }

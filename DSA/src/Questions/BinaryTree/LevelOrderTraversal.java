@@ -17,13 +17,13 @@ public class LevelOrderTraversal {
             int size = q.size();
             List<Integer> temp = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode curr = q.poll();
-                temp.add(curr.val);
-                if (curr.left != null) {
-                    q.add(curr.left);
+                TreeNode cur = q.poll();
+                temp.add(cur.val);
+                if (cur.left != null) {
+                    q.add(cur.left);
                 }
-                if (curr.right != null) {
-                    q.add(curr.right);
+                if (cur.right != null) {
+                    q.add(cur.right);
                 }
 
             }

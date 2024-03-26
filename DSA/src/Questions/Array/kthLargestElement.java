@@ -45,6 +45,9 @@ public class kthLargestElement {
 
         return pq.peek();
     }
+    /*
+     * Time complexity: O(nlogk) Space complexity: O(k)
+     */
 
     public static void main(String[] args) {
         kthLargestElement kthLargestElement = new kthLargestElement();

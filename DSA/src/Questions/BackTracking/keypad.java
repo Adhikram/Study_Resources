@@ -25,6 +25,9 @@ public class keypad {
             }
         }
     }
+    /*
+     * Time complexity: O(4^n) where n is the number of digits in the input string
+     */
 
     public static void main(String[] args) {
         keypad k = new keypad();

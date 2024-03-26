@@ -23,13 +23,18 @@ public class MaximumWidth {
         int ans = 0;
         Queue<Pair> q = new LinkedList<>();
         // Add the root to the queue with id 0
+
         q.offer(new Pair(root, 0));
+
         while (!q.isEmpty()) {
             int size = q.size();
+
             // Get the id of the first node in the queue
             int first_id = q.peek().num;
             int first = 0, last = 0;
+
             for (int i = 0; i < size; i++) {
+
                 // Get the id of the current node relative to the first node in the queue
                 int cur_id = q.peek().num - first_id;
                 TreeNode node = q.peek().node;
@@ -69,6 +74,18 @@ public class MaximumWidth {
         // Find the maximum width of the binary tree
         int maxWidth = widthOfBinaryTree(root);
         System.out.println("The maximum width of the Binary Tree is " + maxWidth);
+        /*
+         * Dry Run: The binary tree is as follows:
+         *       1
+         *      / \
+         *     3   2
+         *    / \   \
+         *   5   4   6
+         *  /
+         * 7
+         * maximum width of the binary tree is 8
+         * 
+         */
 
     }
 }
