@@ -51,8 +51,8 @@ public class KthElement {
             int cut2 = k - cut1;
             int l1 = cut1 == 0 ? Integer.MIN_VALUE : arr1[cut1 - 1];
             int l2 = cut2 == 0 ? Integer.MIN_VALUE : arr2[cut2 - 1];
-            int r1 = cut1 == n ? Integer.MAX_VALUE : arr1[cut1];
-            int r2 = cut2 == m ? Integer.MAX_VALUE : arr2[cut2];
+            int r1 = cut1 >= n ? Integer.MAX_VALUE : arr1[cut1];
+            int r2 = cut2 >= m ? Integer.MAX_VALUE : arr2[cut2];
 
             // If the elements at the cut positions in both arrays are in the correct order,
             // return the maximum of them
