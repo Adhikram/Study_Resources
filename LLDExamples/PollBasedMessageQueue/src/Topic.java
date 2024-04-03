@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Topic {
     // private Integer id;
     private Message head = new Message();
     private Message tail = new Message();
 
+    private final ReentrantLock write = new ReentrantLock();
     // Constructor without parameters
     public Topic() {
         // this.id = id;
@@ -13,12 +15,12 @@ public class Topic {
     }
 
     // Getter for head
-    public Message getHead() {
+    public synchronized Message getHead() {
         return this.head;
     }
 
     // Getter for tail
-    public Message getTail() {
+    public synchronized Message getTail() {
         return this.tail;
     }
 
@@ -43,10 +45,15 @@ public class Topic {
 
     // Add message to the end of the topic
     public void addMessage(Message message) {
-        Message lastMessage = tail.getPrevious();
-        lastMessage.setNext(message);
-        message.setPrevious(lastMessage);
-        message.setNext(tail);
-        tail.setPrevious(message);
+        write.lock();
+        try {
+            Message lastMessage = tail.getPrevious();
+            lastMessage.setNext(message);
+            message.setPrevious(lastMessage);
+            message.setNext(tail);
+            tail.setPrevious(message);
+        } finally {
+            write.unlock();
+        }
     }
 }
