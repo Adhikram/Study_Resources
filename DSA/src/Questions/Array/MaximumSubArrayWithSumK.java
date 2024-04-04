@@ -36,28 +36,22 @@ public class MaximumSubArrayWithSumK {
      
      */
     public static int getLongestSubArrayOptimized(int[] nums, int k) {
-        HashMap<Integer, Integer> hash = new HashMap<>();
-        hash.put(0, -1);
+        // Wrong
+        int start = 0;
+        int end = 0;
         int prefixSum = 0;
         int result = 0;
         int n = nums.length;
-        for (int i = 0; i < n; i++) {
-            // System.out.println(nums[i] + " Pre- " + prefixSum);
-            prefixSum += nums[i];
-            if(prefixSum == k){
-                result = i + 1;
+        while (end < n) {
+            prefixSum += nums[end];
+            if (prefixSum == k) {
+                result = Math.max(result, end - start + 1);
             }
-            if (hash.containsKey(prefixSum - k)) {
-                // System.out.println(" PrefixSum: " + prefixSum + " " + (prefixSum - k) + " " +
-                // i + " " + hash.get(prefixSum - k));
-                int index = hash.get(prefixSum - k);
-                result = Math.max(result, i - index);
-                // System.out.println(" Result: " + result);
+            while (prefixSum > k) {
+                prefixSum -= nums[start];
+                start++;
             }
-            if (!hash.containsKey(prefixSum)) {
-                hash.put(prefixSum, i);
-            }
-
+            end++;
         }
         return result;
 

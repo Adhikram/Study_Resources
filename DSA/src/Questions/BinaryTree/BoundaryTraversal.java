@@ -2,8 +2,6 @@ package Questions.BinaryTree;
 
 import java.util.ArrayList;
 
-import DataStructures.Array;
-
 public class BoundaryTraversal {
     // Method to check if a node is a leaf node
     static Boolean isLeaf(TreeNode root) {

@@ -10,9 +10,11 @@ public class AstroidCollision {
             if (asteroids[i] > 0 || s.isEmpty()) {
                 s.push(asteroids[i]);
             } else {
+                // Kill the asteroids
                 while (!s.isEmpty() && s.peek() > 0 && s.peek() < Math.abs(asteroids[i])) {
                     s.pop();
                 }
+
                 if (!s.isEmpty() && s.peek() == Math.abs(asteroids[i])) {
                     s.pop();
                 } else {
@@ -31,7 +33,7 @@ public class AstroidCollision {
 
     public static void main(String[] args) {
         AstroidCollision ac = new AstroidCollision();
-        int[] asteroids = {5, 10, -5};
+        int[] asteroids = { 5, 10, -5 };
         int[] res = ac.asteroidCollision(asteroids);
         for (int i : res) {
             System.out.print(i + " ");

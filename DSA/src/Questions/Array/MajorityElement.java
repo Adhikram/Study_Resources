@@ -21,7 +21,7 @@ public class MajorityElement {
     }
     /*
      * Time complexity: O(n) Space complexity: O(1)
-     
+     *
      */
 
     public static void main(String[] args) {

@@ -1,6 +1,5 @@
 package Questions.DP;
 
-import java.sql.Time;
 import java.util.Arrays;
 
 public class LongestCommonSubsequence {
@@ -64,8 +63,8 @@ public class LongestCommonSubsequence {
 
         // Initialize the dp array with -1 to indicate that subproblems are not solved
         // yet
-        for (int rows[] : dp)
-            Arrays.fill(rows, -1);
+        for (int row[] : dp)
+            Arrays.fill(row, -1);
 
         // Initialize the first row and first column with zeros since LCS with an empty
         // string is zero

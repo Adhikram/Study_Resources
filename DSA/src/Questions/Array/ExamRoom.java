@@ -1,4 +1,4 @@
-package Questions.Graph;
+package Questions.Array;
 
 import java.util.TreeSet;
 

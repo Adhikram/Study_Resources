@@ -40,8 +40,8 @@ public class ReverseKGroups {
             count++;
         }
         // If next element Presents then attach it to the head
-        if (temp != null) {
-            head.next = reverseKGroup(temp, k);
+        if (curr != null) {
+            head.next = reverseKGroup(curr, k);
         }
         return prev;
 
@@ -55,7 +55,7 @@ public class ReverseKGroups {
         head.next.next.next = reverse.new ListNode(4);
         head.next.next.next.next = reverse.new ListNode(5);
         head.next.next.next.next.next = reverse.new ListNode(6);
-        ListNode reversed = reverse.reverseKGroup(head, 3);
+        ListNode reversed = reverse.reverseKGroup(head, 2);
         while (reversed != null) {
             System.out.println(reversed.val);
             reversed = reversed.next;

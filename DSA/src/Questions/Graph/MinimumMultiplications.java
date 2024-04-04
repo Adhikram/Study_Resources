@@ -36,9 +36,9 @@ public class MinimumMultiplications {
 
                     // If the target number is reached, return the calculated steps
                     if (num == end)
-                        return steps + 1;
+                        return dist[num];
 
-                    queue.offer(new Pair(num, steps + 1));
+                    queue.offer(new Pair(num, dist[num]));
                 }
             }
         }

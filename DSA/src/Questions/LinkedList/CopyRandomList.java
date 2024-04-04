@@ -9,6 +9,7 @@ public class CopyRandomList {
         Node newHead = new Node(head.val);
         Node tail = newHead, temp = head.next;
         HashMap<Node, Node> map = new HashMap<>();
+        // Add the original node and the new node to the map
         map.put(head, newHead);
         while (temp != null) {
             Node x = new Node(temp.val);

@@ -19,22 +19,28 @@ public class KPalindrome {
         }
         return dp[n][n] <= 2 * k;
     }
-    bool canConstruct(string s, int k) {
 
-        int a[26];  // to store the count of charachters
-        memset(a,0,sizeof(a));
-        int n=s.length();
-        if(k>n)return 0;
-        for(int i=0;i<n;i++)
-        {
-            a[s[i]-'a']++;
+    public static boolean canConstruct(String s, int k) {
+        int[] a = new int[26]; // to store the count of characters
+        int n = s.length();
+        if (k > n)
+            return false;
+        for (int i = 0; i < n; i++) {
+            a[s.charAt(i) - 'a']++;
         }
-        int res=0;
-        for(int i=0;i<26;i++)
-        {
-            // if count is odd, then increment the resultant
-            if(a[i]%2)res++;
+        int res = 0;
+        for (int i = 0; i < 26; i++) {
+            // if count is odd, then increment the result
+            if (a[i] % 2 != 0)
+                res++;
         }
-        return res<=k;
+        return res <= k;
+    }
+
+    public static void main(String[] args) {
+        String s = "abcdeca";
+        int k = 2;
+        System.out.println(isKPalindrome(s, k));
+        System.out.println(canConstruct(s, k));
     }
 }

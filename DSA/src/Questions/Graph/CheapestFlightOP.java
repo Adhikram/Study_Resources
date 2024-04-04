@@ -21,7 +21,7 @@ public class CheapestFlightOP {
         for (int[] flight : flights) {
             int src = flight[0];
             int dst = flight[1];
-            int  cost =flight[2];
+            int  cost = flight[2];
 
             if (copy[src] != Integer.MAX_VALUE && dist[dst] > copy[src] + cost) {
                 dist[dst] = cost + copy[src];

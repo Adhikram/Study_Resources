@@ -28,8 +28,10 @@ public class RotateRight {
             last = last.next;
             length++;
         }
+        // Get the last node and the length of the list
         k = length - (k % length) - 1;
         System.out.println(k);
+        // Link the last node to the head
         last.next = head;
         while (k-- > 0) {
             head = head.next;

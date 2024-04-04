@@ -21,6 +21,7 @@ public class BusRoutes {
         Arrays.fill(minBusesToReach, n + 1);
         minBusesToReach[source] = 0;
         boolean flag = true;
+        // Bellman Ford Algorithm
         while (flag) {
             flag = false;
             for (int[] route : routes) {

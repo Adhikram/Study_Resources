@@ -1,5 +1,7 @@
 package Questions.BinarySearch;
 
+import java.util.Arrays;
+
 public class EatingBananas {
     // Method to find the maximum value in an array
     public static int findMax(int[] v) {
@@ -27,6 +29,7 @@ public class EatingBananas {
     // given number of hours
     public static int minimumRateToEatBananas(int[] v, int h) {
         int low = 1, high = findMax(v);
+        // int maxi = Arrays.stream(v).max().getAsInt();
 
         // Apply binary search to find the minimum rate
         while (low <= high) {

@@ -45,6 +45,12 @@ class Prims {
                     pq.add(new Pair(edW, adjNode));
                 }
             }
+
+            // for(ArrayList<Integer> adjNode : adj.get(node)) {
+            //     if(vis[adjNode.get(0)] == 0) {
+            //         pq.add(new Pair(adjNode.get(1), adjNode.get(0)));
+            //     }
+            // }
         }
         return sum; // Return the sum of all the edge weights
     }

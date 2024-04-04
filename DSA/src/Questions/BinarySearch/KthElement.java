@@ -43,7 +43,8 @@ public class KthElement {
             return BinarySearch(arr2, arr1, n, m, k);
         }
 
-        int low = Math.max(0, k - m), high = Math.min(k, n);
+        // int low = Math.max(0, k - m), high = Math.min(k, n);
+        int low = 0, high = m;
 
         while (low <= high) {
             int cut1 = (low + high) >> 1;

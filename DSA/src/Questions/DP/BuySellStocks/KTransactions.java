@@ -35,11 +35,11 @@ public class KTransactions {
 
         // Creating a 3D dp array of size [n][2][3]
 
-        int[][][] dp = new int[n][k][3];
+        int[][][] dp = new int[n][2][k + 1];
 
         // Initialize the dp array with -1
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < k; j++) {
+            for (int j = 0; j < 2; j++) {
                 Arrays.fill(dp[i][j], -1);
             }
         }
@@ -61,7 +61,9 @@ public class KTransactions {
         int n = prices.length;
 
         // Creating a 3D dp array of size [n+1][2][3] initialized to 0
-        int[][][] dp = new int[n + 1][k][3];
+        int[][][] dp = new int[n + 1][2][k+1];
+        // Each Cell dp[i][j][k] talk about the maximum profit that can be made by
+        // performing j transactions till ith day with k limits in hand.
 
         // Loop through the dp array, starting from the second last stock (ind=n-1)
         for (int ind = n - 1; ind >= 0; ind--) {
@@ -82,7 +84,7 @@ public class KTransactions {
         }
 
         // The maximum profit with 2 transactions is stored in dp[0][0][2]
-        return dp[0][0][2];
+        return dp[0][0][k];
     }
     // Time Complexity: O(N*k*3)
 
@@ -97,8 +99,8 @@ public class KTransactions {
         int n = prices.length;
 
         // Create a 2D array 'ahead' and 'cur' to store profit values
-        int[][] ahead = new int[k][3];
-        int[][] cur = new int[k][3];
+        int[][] ahead = new int[3][k + 1];
+        int[][] cur = new int[3][k + 1 ];
 
         // Loop through the prices array, starting from the second last stock (ind=n-1)
         for (int ind = n - 1; ind >= 0; ind--) {
@@ -117,16 +119,16 @@ public class KTransactions {
                 }
             }
 
-            // Update 'ahead' with the values in 'cur'
-            for (int i = 0; i < k; i++) {
-                for (int j = 1; j < 3; j++) {
+            // Copy the values of 'cur' to 'ahead'
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j <= k; j++) {
                     ahead[i][j] = cur[i][j];
                 }
             }
         }
 
         // The maximum profit with 2 transactions is stored in ahead[0][2]
-        return ahead[0][2];
+        return ahead[0][k];
     }
     // Time Complexity: O(N*k*3)
 
@@ -138,7 +140,7 @@ public class KTransactions {
 
     public static void main(String[] args) {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
-        int k = 2;
+        int k = 5;
         System.out.println(maxProfitRecursive(prices, k));
         System.out.println(maxProfitTabulation(prices, k));
         System.out.println(maxProfitOptimized(prices, k));

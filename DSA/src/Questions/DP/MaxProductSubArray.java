@@ -1,7 +1,5 @@
 package Questions.DP;
 
-import java.sql.Time;
-
 public class MaxProductSubArray {
     // Problem:- Given an array that contains both negative and positive integers,
     // find the maximum product subarray.

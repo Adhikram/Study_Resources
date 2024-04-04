@@ -32,12 +32,12 @@ public class MostStones {
     // Method to calculate the maximum number of stones that can be removed
     static int maxRemove(int[][] stones, int n) {
         // Find maximum row and column indices among the stones
-        int maxRow = 0;
-        int maxCol = 0;
-        for (int i = 0; i < n; i++) {
-            maxRow = Math.max(maxRow, stones[i][0]);
-            maxCol = Math.max(maxCol, stones[i][1]);
-        }
+        int maxRow = Arrays.stream(stones).mapToInt(stone -> stone[0]).max().getAsInt();
+        int maxCol = Arrays.stream(stones).mapToInt(stone -> stone[1]).max().getAsInt();
+        // for (int i = 0; i < n; i++) {
+        //     maxRow = Math.max(maxRow, stones[i][0]);
+        //     maxCol = Math.max(maxCol, stones[i][1]);
+        // }
 
         // Create a DisjointSet with a size enough to accommodate both rows and columns
         DisjointSet ds = new DisjointSet(maxRow + maxCol + 1);

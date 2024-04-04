@@ -1,5 +1,7 @@
 package Questions.BinarySearch;
 
+import java.util.Arrays;
+
 public class SplitArrayLargestSum {
 
     // Method to count the number of students needed to read the given number of
@@ -27,10 +29,13 @@ public class SplitArrayLargestSum {
     public static int splitArray(int[] nums, int m) {
         int low = 0, high = 0;
         // Calculate the lower and upper bounds for binary search
-        for (int num : nums) {
-            low = Math.max(low, num); // The maximum element in the array
-            high += num; // The sum of all elements in the array
-        }
+        // for (int num : nums) {
+        //     low = Math.max(low, num); // The maximum element in the array
+        //     high += num; // The sum of all elements in the array
+        // }
+        low = Arrays.stream(nums).max().getAsInt();
+        high = Arrays.stream(nums).sum();
+        System.out.println("Low: " + low + " High: " + high);
         // Apply binary search
         while (low <= high) {
             int mid = (low + high) / 2;
