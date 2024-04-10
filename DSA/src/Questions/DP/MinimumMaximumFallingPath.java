@@ -1,8 +1,6 @@
 package Questions.DP;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 // We are given an ‘N*M’ matrix. We need to find the maximum path sum from any
 // cell of the first row to any cell of the last row.

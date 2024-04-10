@@ -10,7 +10,7 @@ public class Bipartite {
 
         // traverse adjacent nodes
         for (int it : adj.get(node)) {
-            // if uncoloured
+            // if un coloured
             if (color[it] == -1) {
                 if (dfs(it, 1 - col, color, adj) == false)
                     return false;

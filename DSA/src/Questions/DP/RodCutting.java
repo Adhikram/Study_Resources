@@ -1,6 +1,5 @@
 package Questions.DP;
 
-import java.sql.Time;
 import java.util.Arrays;
 
 public class RodCutting {
@@ -24,10 +23,12 @@ public class RodCutting {
         // Calculate the maximum value when the current item is not taken
         int notTaken = 0 + knapsackUtil(wt, val, ind - 1, W, dp);
 
-        // Initialize the maximum value when the current item is taken as the minimum integer value
+        // Initialize the maximum value when the current item is taken as the minimum
+        // integer value
         int taken = Integer.MIN_VALUE;
 
-        // If the weight of the current item is less than or equal to the available capacity (W),
+        // If the weight of the current item is less than or equal to the available
+        // capacity (W),
         // calculate the maximum value when the current item is taken
         if (wt[ind] <= W)
             taken = val[ind] + knapsackUtil(wt, val, ind, W - wt[ind], dp);
@@ -41,7 +42,8 @@ public class RodCutting {
         // Create a 2D array to store results of subproblems
         int[][] dp = new int[n][W + 1];
 
-        // Initialize the dp array with -1 to indicate that subproblems are not solved yet
+        // Initialize the dp array with -1 to indicate that subproblems are not solved
+        // yet
         for (int row[] : dp)
             Arrays.fill(row, -1);
 
@@ -50,15 +52,16 @@ public class RodCutting {
     }
     // Time Complexity: O(N*W)
 
-    // Reason: There are N*W states therefore at max ‘N*W’ new problems will be solved.
+    // Reason: There are N*W states therefore at max ‘N*W’ new problems will be
+    // solved.
 
     // Space Complexity: O(N*W) + O(N)
-
 
     // Function to solve the unbounded knapsack problem
     static int unboundedKnapsackTabulation(int n, int W, int[] val, int[] wt) {
         // Create a 2D array to store results of subproblem
-        // dp[i][j] stores the maximum value that can be obtained with a knapsack of capacity j and using the first i items
+        // dp[i][j] stores the maximum value that can be obtained with a knapsack of
+        // capacity j and using the first i items
         int[][] dp = new int[n][W + 1];
 
         // Base condition: Initialize the dp array for the first item
@@ -72,10 +75,12 @@ public class RodCutting {
                 // Calculate the maximum value when the current item is not taken
                 int notTaken = 0 + dp[ind - 1][cap];
 
-                // Initialize the maximum value when the current item is taken as the minimum integer value
+                // Initialize the maximum value when the current item is taken as the minimum
+                // integer value
                 int taken = Integer.MIN_VALUE;
 
-                // If the weight of the current item is less than or equal to the current capacity (cap),
+                // If the weight of the current item is less than or equal to the current
+                // capacity (cap),
                 // calculate the maximum value when the current item is taken
                 if (wt[ind] <= cap)
                     taken = val[ind] + dp[ind][cap - wt[ind]];
@@ -109,10 +114,12 @@ public class RodCutting {
                 // Calculate the maximum value when the current item is not taken
                 int notTaken = cur[cap];
 
-                // Initialize the maximum value when the current item is taken as the minimum integer value
+                // Initialize the maximum value when the current item is taken as the minimum
+                // integer value
                 int taken = Integer.MIN_VALUE;
 
-                // If the weight of the current item is less than or equal to the current capacity (cap),
+                // If the weight of the current item is less than or equal to the current
+                // capacity (cap),
                 // calculate the maximum value when the current item is taken
                 if (wt[ind] <= cap)
                     taken = val[ind] + cur[cap - wt[ind]];
@@ -128,10 +135,9 @@ public class RodCutting {
     // Reason: There are two nested loops
     // Space Complexity: O(W)
 
-
     public static void main(String[] args) {
         int n = 8; // Length of the rod
-        int[] price = {1, 5, 8, 9, 10, 17, 17, 20}; // Price of each piece of the rod
+        int[] price = { 1, 5, 8, 9, 10, 17, 17, 20 }; // Price of each piece of the rod
         System.out.println(unboundedKnapsackRecursive(n, n, price, price));
         System.out.println(unboundedKnapsackTabulation(n, n, price, price));
         System.out.println(unboundedKnapsackOptimized(n, n, price, price));

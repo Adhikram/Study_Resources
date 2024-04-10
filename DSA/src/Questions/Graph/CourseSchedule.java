@@ -41,9 +41,10 @@ public class CourseSchedule {
         return count == numCourses;
 
     }
+
     public static void main(String[] args) {
         int numCourses = 2;
-        int[][] prerequisites = {{1, 0}};
+        int[][] prerequisites = { { 1, 0 } };
         CourseSchedule courseSchedule = new CourseSchedule();
         boolean result = courseSchedule.canFinish(numCourses, prerequisites);
         System.out.println("Can Finish: " + result);

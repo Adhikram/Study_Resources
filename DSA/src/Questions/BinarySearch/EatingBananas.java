@@ -1,7 +1,5 @@
 package Questions.BinarySearch;
 
-import java.util.Arrays;
-
 public class EatingBananas {
     // Method to find the maximum value in an array
     public static int findMax(int[] v) {
