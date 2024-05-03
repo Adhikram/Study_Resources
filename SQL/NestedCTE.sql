@@ -39,3 +39,4 @@ FROM london2_over_90;
 -- 1     100         3
 -- 2     80          2
 -- 3     90          1
+-- The output shows the items priced over $90 and the quantity of these items sold by the London-2 branch.
