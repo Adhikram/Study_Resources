@@ -39,3 +39,4 @@ WHERE l1.month = l2.month
 -- Output
 -- month  london_revenue  london1_revenue  london2_revenue
 -- 1      540             300              240
+-- 2      0               0                0
