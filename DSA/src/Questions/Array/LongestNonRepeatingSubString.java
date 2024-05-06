@@ -7,14 +7,14 @@ public class LongestNonRepeatingSubString {
         HashMap<Character, Integer> hash = new HashMap<>();
         int result = 0;
         // Valid substring start index for the current character
-        int start = 0;
+        int start = -1;
 
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             if (hash.containsKey(ch)) {
                 // If the character is already present in the hash, then we update the start
                 // index to the next index of the character
-                start = Math.max(start, hash.get(ch));
+                start = Math.max(start, hash.getOrDefault(ch, 0));
             }
             hash.put(ch, i);
             result = Math.max(result, i - start);
@@ -29,5 +29,8 @@ public class LongestNonRepeatingSubString {
     public static void main(String[] args) {
         LongestNonRepeatingSubString longestNonRepeatingSubString = new LongestNonRepeatingSubString();
         System.out.println(longestNonRepeatingSubString.lengthOfLongestSubstring("abcabcdb"));
+        System.out.println(longestNonRepeatingSubString.lengthOfLongestSubstring("b"));
+        System.out.println(longestNonRepeatingSubString.lengthOfLongestSubstring("pwwkew"));
+        System.out.println(longestNonRepeatingSubString.lengthOfLongestSubstring("aaaaaa"));
     }
 }

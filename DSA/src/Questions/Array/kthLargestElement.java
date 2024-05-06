@@ -3,11 +3,11 @@ package Questions.Array;
 import java.util.PriorityQueue;
 
 public class kthLargestElement {
-    public int quickSelect(int[] nums, int k, int left, int right) {
-        int pivot = nums[right];
+    public int quickSelect(int[] nums, int k, int left, int pv) {
+        int pivot = nums[pv];
         int i = left;
         // We will place all the elements smaller than pivot to the left of pivot
-        for (int j = left; j < right; j++) {
+        for (int j = left; j < pv; j++) {
             if (nums[j] < pivot) {
                 int temp = nums[i];
                 nums[i] = nums[j];
@@ -17,13 +17,13 @@ public class kthLargestElement {
         }
         // Swap the pivot element with the element at i
         int temp = nums[i];
-        nums[i] = nums[right];
-        nums[right] = temp;
+        nums[i] = nums[pv];
+        nums[pv] = temp;
 
         if (i == k) {
             return nums[i];
         } else if (i < k) {
-            return quickSelect(nums, k, i + 1, right);
+            return quickSelect(nums, k, i + 1, pv);
         } else {
             return quickSelect(nums, k, left, i - 1);
         }
