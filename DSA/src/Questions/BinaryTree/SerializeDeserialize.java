@@ -1,7 +1,6 @@
 package Questions.BinaryTree;
 
 public class SerializeDeserialize {
-    private static int index; // Index to keep track of the position in the array during deserialization
 
     // Encodes a tree to a single string.
     public static String serialize(TreeNode root) {
@@ -13,21 +12,31 @@ public class SerializeDeserialize {
     // Decodes your encoded data to tree.
     public static TreeNode deserialize(String data) {
         String[] arr = data.split(" ");
-        index = 0; // Reset the index before deserialization starts
-        return helper(arr);
+        int[] index = {0}; // Reset the index before deserialization starts
+        return helper(arr, index);
     }
 
-    private static TreeNode helper(String[] arr) {
-        if (index >= arr.length || arr[index].equals("#")) {
-            index++; // Increment the index when encountering "#" or reaching the end of array
+    private static TreeNode helper(String[] arr, int[] index) {
+        if (index[0] >= arr.length || arr[index[0]].equals("#")) {
+            index[0]++; // Increment the index when encountering "#" or reaching the end of array
             return null;
         }
 
-        TreeNode root = new TreeNode(Integer.valueOf(arr[index]));
-        index++; // Move to the next element in the array
-        root.left = helper(arr);
-        root.right = helper(arr);
+        TreeNode root = new TreeNode(Integer.valueOf(arr[index[0]]));
+        index[0]++; // Move to the next element in the array
+        root.left = helper(arr,index);
+        root.right = helper(arr, index);
         return root;
+    }
+
+    public static void print(TreeNode root) {
+        if(root == null){
+            System.out.println("#");
+            return;
+        }
+        System.out.println(root.val);
+        print(root.left);
+        print(root.right);
     }
 
     public static void main(String[] args) {
@@ -40,7 +49,7 @@ public class SerializeDeserialize {
         String serialized = serialize(root);
         System.out.println(serialized);
         TreeNode deserialized = deserialize(serialized);
-        System.out.println(deserialized.val);
+        print(deserialized);
 
     }
 }

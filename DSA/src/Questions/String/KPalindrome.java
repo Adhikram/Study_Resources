@@ -17,6 +17,9 @@ public class KPalindrome {
                         : 1 + Math.min(dp[i - 1][j], dp[i][j - 1]);
             }
         }
+        // If the number of deletions required to make the string palindrome is less than
+        // or equal to 2*k, then return true
+        // Why 2*k? Because we can insert the characters from the deleted characters
         return dp[n][n] <= 2 * k;
     }
 

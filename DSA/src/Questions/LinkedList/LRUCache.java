@@ -57,6 +57,9 @@ public class LRUCache {
             value = _value;
         }
     }
+    // Complexity Analysis
+    // Time complexity: O(1) both for put and get since all operations with ordered
+    // Space complexity: O(capacity) since the space is used only for a hashmap
 
     public static void main(String[] args) {
         LRUCache lRUCache = new LRUCache(2);

@@ -26,6 +26,7 @@ public class KClosestPoints {
         }
         return result;
     }
+    // Time Complexity: O(nlogk)
 
     public static void main(String[] args) {
         KClosestPoints kClosestPoints = new KClosestPoints();
