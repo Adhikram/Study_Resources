@@ -10,7 +10,7 @@ public class NumberOfSpecialChar {
 
         for (char ch : word.toCharArray()) {
             hash.put(ch - 'a', true);
-            hash.forEach((k, v) -> System.out.println(k + " " + v);
+            hash.forEach((k, v) -> System.out.println(k + " " + v));
         }
 
         for (int i = 0; i < 26; i++) {
