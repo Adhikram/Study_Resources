@@ -30,11 +30,11 @@ public class LongestCommonSubsequence {
         int m = s2.length();
 
         // Create a 2D array to store results of subproblems
-        int dp[][] = new int[n][m];
+        int[][] dp = new int[n][m];
 
         // Initialize the dp array with -1 to indicate that subproblems are not solved
         // yet
-        for (int rows[] : dp)
+        for (int[] rows : dp)
             Arrays.fill(rows, -1);
 
         // Call the recursive function to find the LCS length
@@ -59,11 +59,11 @@ public class LongestCommonSubsequence {
 
         // Each cell (i,j) in the dp array indicates the length of the LCS for s1[0:i-1]
         // and s2[0:j-1]
-        int dp[][] = new int[n + 1][m + 1];
+        int[][] dp = new int[n + 1][m + 1];
 
         // Initialize the dp array with -1 to indicate that subproblems are not solved
         // yet
-        for (int row[] : dp)
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Initialize the first row and first column with zeros since LCS with an empty
@@ -106,8 +106,8 @@ public class LongestCommonSubsequence {
         int m = s2.length();
 
         // Create arrays to store the LCS lengths
-        int prev[] = new int[m + 1];
-        int cur[] = new int[m + 1];
+        int[] prev = new int[m + 1];
+        int[] cur = new int[m + 1];
 
         // Iterate through the strings and calculate LCS lengths
         for (int ind1 = 1; ind1 <= n; ind1++) {

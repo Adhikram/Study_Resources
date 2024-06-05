@@ -42,7 +42,7 @@ public class EditDistance {
         int m = S2.length();
 
         int[][] dp = new int[n][m];
-        for (int row[] : dp)
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Call the recursive helper function

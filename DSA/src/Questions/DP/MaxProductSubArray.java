@@ -29,7 +29,7 @@ public class MaxProductSubArray {
 
     // Space Complexity: O(1)
     public static void main(String[] args) {
-        int arr[] = { 6, -3, -10, 0, 2 };
+        int[] arr = { 6, -3, -10, 0, 2 };
         System.out.println(maxProductSubArrayOptimal(arr)); // 180
     }
 }

@@ -35,9 +35,9 @@ public class MinimumMaximumFallingPath {
         int n = matrix.length;
         int m = matrix[0].length;
 
-        int dp[][] = new int[n][m];
+        int[][] dp = new int[n][m];
         // Arrays.stream(dp).forEach(row -> Arrays.fill(row, -1));
-        for (int row[] : dp)
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         int maxi = Integer.MIN_VALUE;
@@ -56,7 +56,7 @@ public class MinimumMaximumFallingPath {
         int n = matrix.length;
         int m = matrix[0].length;
 
-        int dp[][] = new int[n][m];
+        int[][] dp = new int[n][m];
 
         // Initializing the first row - base condition
         for (int j = 0; j < m; j++) {

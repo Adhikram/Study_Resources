@@ -3,7 +3,7 @@ package Questions.DP;
 import java.util.Arrays;
 
 public class SortIntegersByPowers {
-    static int dp[] = new int[1000000];
+    static int[] dp = new int[1000000];
 
     public int getKth(int low, int high, int k) {
         int[][] ans = new int[(high - low) + 1][2];

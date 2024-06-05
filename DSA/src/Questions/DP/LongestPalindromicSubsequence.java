@@ -9,10 +9,10 @@ public class LongestPalindromicSubsequence {
         int m = s2.length();
 
         // Create a 2D array to store the LCS lengths
-        int dp[][] = new int[n + 1][m + 1];
+        int[][] dp = new int[n + 1][m + 1];
 
         // Initialize the dp array with -1
-        for (int rows[] : dp)
+        for (int[] rows : dp)
             Arrays.fill(rows, -1);
 
         // Initialize the first row and first column with 0

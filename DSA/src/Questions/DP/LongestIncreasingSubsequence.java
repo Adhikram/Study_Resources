@@ -6,7 +6,7 @@ public class LongestIncreasingSubsequence {
     // Problem:- The longest increasing subsequence is described as a subsequence of
     // an array where:
 
-    static int getAns(int arr[], int n, int ind, int prev_index, int[][] dp) {
+    static int getAns(int[] arr, int n, int ind, int prev_index, int[][] dp) {
         // Base condition
         if (ind == n) {
             return 0;
@@ -16,7 +16,7 @@ public class LongestIncreasingSubsequence {
             return dp[ind][prev_index + 1];
         }
 
-        int notTake = 0 + getAns(arr, n, ind + 1, prev_index, dp);
+        int notTake = getAns(arr, n, ind + 1, prev_index, dp);
 
         int take = 0;
 
@@ -30,11 +30,11 @@ public class LongestIncreasingSubsequence {
     }
 
     // Function to find the length of the longest increasing subsequence
-    static int lisRecursive(int arr[], int n) {
-        int dp[][] = new int[n][n + 1];
+    static int lisRecursive(int[] arr, int n) {
+        int[][] dp = new int[n][n + 1];
 
         // Initialize dp array with -1 to mark states as not calculated yet
-        for (int row[] : dp) {
+        for (int[] row : dp) {
             Arrays.fill(row, -1);
         }
 
@@ -53,12 +53,12 @@ public class LongestIncreasingSubsequence {
 
     static int longestIncreasingSubsequenceTabulation(int arr[], int n) {
 
-        int dp[][] = new int[n + 1][n + 1];
+        int[][] dp = new int[n + 1][n + 1];
 
         for (int ind = n - 1; ind >= 0; ind--) {
             for (int prev_index = ind - 1; prev_index >= -1; prev_index--) {
 
-                int notTake = 0 + dp[ind + 1][prev_index + 1];
+                int notTake = dp[ind + 1][prev_index + 1];
 
                 int take = 0;
 

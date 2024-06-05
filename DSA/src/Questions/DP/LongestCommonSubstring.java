@@ -42,12 +42,12 @@ public class LongestCommonSubstring {
         int m = s2.length();
 
         // Create arrays to store LCS lengths
-        int prev[] = new int[m + 1];
+        int[] prev = new int[m + 1];
 
         int ans = 0; // Initialize a variable to store the maximum LCS length
 
         for (int i = 1; i <= n; i++) {
-            int cur[] = new int[m + 1];
+            int[] cur = new int[m + 1];
             for (int j = 1; j <= m; j++) {
                 // If the characters at the current indices are the same, extend the LCS
                 if (s1.charAt(i - 1) == s2.charAt(j - 1)) {

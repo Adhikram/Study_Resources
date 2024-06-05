@@ -26,8 +26,8 @@ public class MinimumPathSumTriangular {
     // Function to find the minimum path sum in the triangle
     static int minSumPathRecursive(int[][] triangle, int n) {
         // Create a 2D array to store computed results, initialize with -1
-        int dp[][] = new int[n][n];
-        for (int row[] : dp)
+        int[][] dp = new int[n][n];
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Call the utility function to find the minimum path sum starting from the top
@@ -38,7 +38,7 @@ public class MinimumPathSumTriangular {
     // programming
     static int minSumPathTabulation(int[][] triangle, int n) {
         // Create a 2D array to store intermediate results
-        int dp[][] = new int[n][n];
+        int[][] dp = new int[n][n];
 
         // Initialize the bottom row of dp with the values from the bottom row of the
         // triangle

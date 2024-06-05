@@ -12,7 +12,7 @@ public class Bipartite {
         for (int it : adj.get(node)) {
             // if un coloured
             if (color[it] == -1) {
-                if (dfs(it, 1 - col, color, adj) == false)
+                if (!dfs(it, 1 - col, color, adj))
                     return false;
             }
             // if previously coloured and have the same colour

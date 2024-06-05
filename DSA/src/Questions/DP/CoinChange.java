@@ -39,11 +39,11 @@ public class CoinChange {
     // Function to count the ways to make change
     static long countWaysToMakeChangeRecursive(int[] arr, int n, int T) {
         // Create a 2D array to store results of subproblems
-        long dp[][] = new long[n][T + 1];
+        long[][] dp = new long[n][T + 1];
 
         // Initialize the dp array with -1 to indicate that subproblems are not solved
         // yet
-        for (long row[] : dp)
+        for (long[] row : dp)
             Arrays.fill(row, -1);
 
         // Call the countWaysToMakeChangeUtil function to calculate the number of ways
@@ -62,7 +62,7 @@ public class CoinChange {
     static long countWaysToMakeChangeTabulation(int[] arr, int n, int T) {
         // Each cell dp[i][j] stores the number of ways to make change for the target
         // 'j' using the first 'i' coins
-        long dp[][] = new long[n][T + 1];
+        long[][] dp = new long[n][T + 1];
 
         // Initialize the first column of the dp array
         // If the target is divisible by the first element of the array, set the value
