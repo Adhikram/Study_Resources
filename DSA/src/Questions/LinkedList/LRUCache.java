@@ -48,7 +48,7 @@ public class LRUCache {
         node.prev = head;
     }
 
-    class Node {
+    static class Node {
         Node prev, next;
         int key, value;
 

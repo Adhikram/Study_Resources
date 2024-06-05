@@ -7,7 +7,7 @@ public class SingleElement {
 
         int low = 0, high = n - 1;
         while (low <= high) {
-            int mid = low + (high - low) / 2;
+            int mid = (high + low) >> 1;
 
             // If arr[mid] is the single element:
             if ((mid == 0 || arr[mid] != arr[mid - 1]) && (mid == n - 1 || arr[mid] != arr[mid + 1])) {
@@ -28,7 +28,7 @@ public class SingleElement {
             } else {
                 // Check if we are in the right part of the pair.
                 // Similar logic as above but in reverse for odd indices.
-                if (mid - 1 >= 0 && arr[mid] == arr[mid - 1]) {
+                if (arr[mid] == arr[mid - 1]) {
                     low = mid + 1;
                 } else {
                     high = mid - 1;
@@ -41,7 +41,7 @@ public class SingleElement {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
+        int[] arr = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8 };
         int ans = singleNonDuplicate(arr);
         System.out.println("The single element is: " + ans);
     }

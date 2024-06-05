@@ -14,13 +14,15 @@ public class RightView {
         }
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
-        while (q.size() != 0) {
+        while (!q.isEmpty()) {
             int size = q.size();
             for (int elem = 0; elem < size; elem++) {
                 TreeNode curr = q.poll();
+                assert curr != null;
                 if (elem == size - 1) {
                     result.add(curr.val);
                 }
+
                 if (curr.left != null) {
                     q.add(curr.left);
                 }

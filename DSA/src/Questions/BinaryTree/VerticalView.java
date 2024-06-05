@@ -9,8 +9,8 @@ import java.util.Queue;
 
 public class VerticalView {
     public static class Pair<K, V> {
-        private K key;
-        private V value;
+        private final K key;
+        private final V value;
 
         public Pair(K key, V value) {
             this.key = key;
@@ -32,7 +32,7 @@ public class VerticalView {
         Pair<TreeNode, Integer> temp = new Pair<TreeNode, Integer>(root, 0);
         q.add(temp);
         int index = 0;
-        while (q.size() != 0) {
+        while (!q.isEmpty()) {
             int size = q.size();
             // Need Level hash to get the Level's data
             HashMap<Integer, List<Integer>> lvlHash = new HashMap<>();

@@ -13,7 +13,7 @@ public class BoundaryTraversal {
         TreeNode cur = root.left;
         while (cur != null) {
             // If the current node is not a leaf node, add its value to the result
-            if (isLeaf(cur) == false)
+            if (!isLeaf(cur))
                 res.add(cur.val);
             // Move to the left child if it exists, otherwise move to the right child
             if (cur.left != null)
@@ -29,7 +29,7 @@ public class BoundaryTraversal {
         ArrayList<Integer> tmp = new ArrayList<Integer>();
         while (cur != null) {
             // If the current node is not a leaf node, add its value to a temporary list
-            if (isLeaf(cur) == false)
+            if (!isLeaf(cur))
                 tmp.add(cur.val);
             // Move to the right child if it exists, otherwise move to the left child
             if (cur.right != null)
@@ -68,7 +68,7 @@ public class BoundaryTraversal {
             addAllInOne(root.left, leaves, left, right);
         if (root.right != null)
             addAllInOne(root.right, leaves, left, right);
-        if (root != null && !isLeaf(root)) {
+        if (!isLeaf(root)) {
             if (root.left != null)
                 right.add(root.val);
             else
@@ -80,7 +80,7 @@ public class BoundaryTraversal {
     static ArrayList<Integer> printBoundary(TreeNode node) {
         ArrayList<Integer> ans = new ArrayList<Integer>();
         // If the root node is not a leaf node, add its value to the result
-        if (isLeaf(node) == false)
+        if (!isLeaf(node))
             ans.add(node.val);
         // Add the left boundary, the leaf nodes, and the right boundary to the result
         addLeftBoundary(node, ans);

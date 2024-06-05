@@ -51,7 +51,7 @@ public class kthLargestElement {
 
     public static void main(String[] args) {
         kthLargestElement kthLargestElement = new kthLargestElement();
-        int[] nums = { 3, 2, 1, 5, 6, 4 };
+        int[] nums = {3, 2, 1, 5, 6, 4};
         int k = 2;
         System.out.println(kthLargestElement.findKthLargest(nums, k));
         System.out.println(kthLargestElement.quickSelect(nums, nums.length - k, 0, nums.length - 1));

@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RainWater {
-    int delRow[] = { 1, -1, 0, 0 };
-    int delCol[] = { 0, 0, 1, -1 };
+    int[] delRow = { 1, -1, 0, 0 };
+    int[] delCol = { 0, 0, 1, -1 };
 
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
 
         int n = heights.length;
         int m = heights[0].length;
 
-        int pacific[][] = new int[n][m];
-        int atlantic[][] = new int[n][m];
+        int[][] pacific = new int[n][m];
+        int[][] atlantic = new int[n][m];
 
         for (int i = 0; i < n; i++) {
             dfs(i, 0, heights, pacific, Integer.MIN_VALUE);// first col

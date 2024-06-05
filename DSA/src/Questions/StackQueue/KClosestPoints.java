@@ -10,8 +10,7 @@ public class KClosestPoints {
             return Double.compare(distance_b, distance_a);
         });
 
-        for (int i = 0; i < points.length; i++) {
-            int[] cur = points[i];
+        for (int[] cur : points) {
             q.add(cur);
             if (q.size() > k) {
                 q.poll();

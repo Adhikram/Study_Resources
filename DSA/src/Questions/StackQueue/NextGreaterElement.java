@@ -26,8 +26,8 @@ public class NextGreaterElement {
         int[] nums1 = { 4, 1, 2 };
         int[] nums2 = { 1, 3, 4, 2 };
         int[] res = solve(nums1, nums2);
-        for (int i = 0; i < res.length; i++) {
-            System.out.print(res[i] + " ");
+        for (int re : res) {
+            System.out.print(re + " ");
         }
     }
 }

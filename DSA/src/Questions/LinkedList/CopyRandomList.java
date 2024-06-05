@@ -30,7 +30,7 @@ public class CopyRandomList {
     }
     public Node copyRanNode(Node head) {
         if (head == null)
-            return head;
+            return null;
         Node temp = head;
         // Adding new nodes in between the original nodes
         while (temp != null) {

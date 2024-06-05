@@ -32,9 +32,9 @@ public class FindPalindrome {
         ListNode prev = slow;
         slow = slow.next;
         prev.next = null;
-        ListNode nextElem = null;
+
         while (slow != null) {
-            nextElem = slow.next;
+            ListNode nextElem = slow.next;
             slow.next = prev;
             prev = slow;
             slow = nextElem;

@@ -22,7 +22,7 @@ public class SerializeDeserialize {
             return null;
         }
 
-        TreeNode root = new TreeNode(Integer.valueOf(arr[index[0]]));
+        TreeNode root = new TreeNode(Integer.parseInt(arr[index[0]]));
         index[0]++; // Move to the next element in the array
         root.left = helper(arr,index);
         root.right = helper(arr, index);

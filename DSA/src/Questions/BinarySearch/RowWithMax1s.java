@@ -7,14 +7,12 @@ public class RowWithMax1s {
     // Method to find the first occurrence of x in a sorted array
     public static int lowerBound(ArrayList<Integer> arr, int n, int x) {
         int low = 0, high = n - 1;
-        int ans = n;
 
         while (low <= high) {
-            int mid = (low + high) / 2;
+            int mid = (low + high) >> 1;
             // If the current element is greater than or equal to x, update ans and look for
             // smaller index on the left
             if (arr.get(mid) >= x) {
-                ans = mid;
                 high = mid - 1;
             }
             // If the current element is less than x, look on the right
@@ -23,7 +21,7 @@ public class RowWithMax1s {
             }
         }
         // Return the first occurrence of x
-        return ans;
+        return high + 1;
     }
 
     // Method to find the row with the maximum number of 1's in a binary matrix
@@ -51,9 +49,11 @@ public class RowWithMax1s {
         ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
         matrix.add(new ArrayList<>(Arrays.asList(0, 1, 1)));
         matrix.add(new ArrayList<>(Arrays.asList(0, 0, 1)));
+        matrix.add(new ArrayList<>(Arrays.asList(1, 0, 1)));
+        matrix.add(new ArrayList<>(Arrays.asList(0, 0, 0)));
         matrix.add(new ArrayList<>(Arrays.asList(1, 1, 1)));
 
-        int n = 3, m = 3;
+        int n = 5, m = 3;
         // Find the row with the maximum number of 1's in the binary matrix
         System.out.println("The row with the maximum number of 1's is: " +
                 rowWithMax1s(matrix, n, m));

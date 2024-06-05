@@ -3,8 +3,8 @@ package Questions.StackQueue;
 import java.util.Stack;
 
 public class QueueUsingStack {
-    private Stack<Integer> s1 = new Stack<>();
-    private Stack<Integer> s2 = new Stack<>();
+    private final Stack<Integer> s1 = new Stack<>();
+    private final Stack<Integer> s2 = new Stack<>();
 
     public QueueUsingStack() {
     }

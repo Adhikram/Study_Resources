@@ -1,10 +1,10 @@
 package Questions.Matrix;
 
 public class WordSearch {
-    private char[][] board;
-    private int rows;
-    private int cols;
-    private int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1}};
+    private final char[][] board;
+    private final int rows;
+    private final int cols;
+    private final int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1}};
 
     public WordSearch(char[][] board) {
         this.board = board;

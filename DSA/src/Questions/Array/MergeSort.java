@@ -6,6 +6,7 @@ public class MergeSort {
         int n1 = m - l + 1, n2 = r - m;
         // Create two temporary arrays
         int[] left = new int[n1], right = new int[n2];
+//        System.arraycopy(arr, l, left, 0, n1);
         for (int i = 0; i < n1; i++) {
             left[i] = arr[l + i];
         }

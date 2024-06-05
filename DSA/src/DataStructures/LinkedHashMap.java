@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 // Class Structure
-class HashSetExample {
+class LinkedHashMap {
     public static void main(String[] args) {
         // Signature
         HashSet<Integer> hashSet = new HashSet<>();

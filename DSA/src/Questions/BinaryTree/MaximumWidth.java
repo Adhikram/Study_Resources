@@ -36,6 +36,7 @@ public class MaximumWidth {
             for (int i = 0; i < size; i++) {
 
                 // Get the id of the current node relative to the first node in the queue
+                assert q.peek() != null;
                 int cur_id = q.peek().num - first_id;
                 TreeNode node = q.peek().node;
                 q.poll();

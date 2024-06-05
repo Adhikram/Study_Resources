@@ -10,7 +10,7 @@ public class InOrderTraversal {
 
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> st = new Stack<>();
-        while (root != null || st.size() != 0) {
+        while (root != null || !st.isEmpty()) {
             while (root != null) {
                 st.push(root);
                 root = root.left;

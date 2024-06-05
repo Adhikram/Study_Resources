@@ -10,6 +10,7 @@ public class FindSecondMinimumValue {
         if (root.left == null && root.right == null)
             return -1;
 
+        assert root.left != null;
         int left = root.left.val;
         int right = root.right.val;
 

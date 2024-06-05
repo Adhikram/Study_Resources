@@ -24,14 +24,15 @@ public class FindMedianInaDataStream {
     }
 
     public double findMedian() {
-        if (maxHeap.size() == minHeap.size()) {
+        if (!maxHeap.isEmpty() && maxHeap.size() == minHeap.size()) {
             return (maxHeap.peek() + minHeap.peek()) / 2.0;
         }
-        return maxHeap.peek();
+        return maxHeap.isEmpty()? 0 : maxHeap.peek();
     }
 
     public static void main(String[] args) {
         FindMedianInaDataStream obj = new FindMedianInaDataStream();
+        System.out.println(obj.findMedian());
         obj.addNum(1);
         obj.addNum(2);
         System.out.println(obj.findMedian());

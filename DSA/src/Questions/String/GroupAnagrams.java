@@ -22,12 +22,14 @@ public class GroupAnagrams {
         char[] L = new char[n1];
         char[] R = new char[n2];
 
-        for (int i = 0; i < n1; i++) {
-            L[i] = arr[l + i];
-        }
-        for (int i = 0; i < n2; i++) {
-            R[i] = arr[m + 1 + i];
-        }
+        System.arraycopy(arr, l, L, 0, n1);
+        System.arraycopy(arr, m+1,R,0,n2);
+//        for (int i = 0; i < n1; i++) {
+//            L[i] = arr[l + i];
+//        }
+//        for (int i = 0; i < n2; i++) {
+//            R[i] = arr[m + 1 + i];
+//        }
 
         int i = 0, j = 0, k = l;
         while (i < n1 && j < n2) {
