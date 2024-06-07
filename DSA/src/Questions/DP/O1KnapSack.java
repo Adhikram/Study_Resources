@@ -23,7 +23,7 @@ public class O1KnapSack {
         }
 
         // Calculate the maximum value when the current item is not taken
-        int notTaken = 0 + knapsackUtil(wt, val, ind - 1, W, dp);
+        int notTaken = knapsackUtil(wt, val, ind - 1, W, dp);
 
         // Calculate the maximum value when the current item is taken
         int taken = Integer.MIN_VALUE;
@@ -39,10 +39,10 @@ public class O1KnapSack {
     // Function to solve the 0/1 Knapsack problem using dynamic programming
     static int knapsackRecursive(int[] wt, int[] val, int n, int W) {
         // Create a 2D DP array to store the maximum value for each subproblem
-        int dp[][] = new int[n][W + 1];
+        int[][] dp = new int[n][W + 1];
 
         // Initialize the DP array with -1 to indicate that subproblems are not solved
-        for (int row[] : dp) {
+        for (int[] row : dp) {
             Arrays.fill(row, -1);
         }
 
@@ -62,7 +62,7 @@ public class O1KnapSack {
     // Function to solve the 0/1 Knapsack problem using dynamic programming
     static int knapsackTabulation(int[] wt, int[] val, int n, int W) {
         // Create a 2D DP array to store the maximum value for each subproblem
-        int dp[][] = new int[n][W + 1];
+        int[][] dp = new int[n][W + 1];
 
         // Base Condition
         for (int i = wt[0]; i <= W; i++) {
@@ -101,7 +101,7 @@ public class O1KnapSack {
     // Function to solve the 0/1 Knapsack problem using dynamic programming
     static int knapsackOptimized(int[] wt, int[] val, int n, int W) {
         // Create an array to store the maximum value for each capacity (previous row)
-        int prev[] = new int[W + 1];
+        int[] prev = new int[W + 1];
 
         // Base Condition: Initialize the first row of the array
         for (int i = wt[0]; i <= W; i++) {
@@ -138,7 +138,15 @@ public class O1KnapSack {
     // Reason: We are using an external array of size ‘W+1’ to store only one row.
 
     public static void main(String[] args) {
-        
+
+        int[] wt = {2, 1, 3, 2};
+        int[] val = {12, 10, 21, 15};
+        int W = 5;
+        int n = wt.length;
+
+        System.out.println(knapsackRecursive(wt, val, n, W));
+        System.out.println(knapsackTabulation(wt, val, n, W));
+        System.out.println(knapsackOptimized(wt, val, n, W));
 
     }
 

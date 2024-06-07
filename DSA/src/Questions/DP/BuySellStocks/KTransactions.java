@@ -99,8 +99,8 @@ public class KTransactions {
         int n = prices.length;
 
         // Create a 2D array 'ahead' and 'cur' to store profit values
-        int[][] ahead = new int[3][k + 1];
-        int[][] cur = new int[3][k + 1 ];
+        int[][] ahead = new int[2][k + 1];
+        int[][] cur = new int[2][k + 1 ];
 
         // Loop through the prices array, starting from the second last stock (ind=n-1)
         for (int ind = n - 1; ind >= 0; ind--) {
@@ -120,7 +120,7 @@ public class KTransactions {
             }
 
             // Copy the values of 'cur' to 'ahead'
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 for (int j = 0; j <= k; j++) {
                     ahead[i][j] = cur[i][j];
                 }

@@ -20,7 +20,7 @@ public class SubsetSum {
 
         // If the result for this subproblem has already been calculated, return it
         if (dp[ind][target] != -1)
-            return dp[ind][target] == 0 ? false : true;
+            return dp[ind][target] != 0;
 
         // Try not taking the current element
         boolean notTaken = subsetSumUtil(ind - 1, target, arr, dp);

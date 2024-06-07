@@ -17,7 +17,7 @@ public class DuplicateMessage {
         for (int i = 0; i < n; i++) {
             String message = messages[i];
             String key = message.substring(0, 1);
-            Integer timeStr = Integer.parseInt(message.substring(1));
+            int timeStr = Integer.parseInt(message.substring(1));
             System.out.println("Time: " + timeStr + " key: " + key);
             if (hash.containsKey(key)) {
                 int prevTime = hash.get(key);

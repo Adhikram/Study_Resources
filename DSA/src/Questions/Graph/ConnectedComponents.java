@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ConnectedComponents {
 
-    private static void dfs(int node, ArrayList<ArrayList<Integer>> adjLs, int vis[]) {
+    private static void dfs(int node, ArrayList<ArrayList<Integer>> adjLs, int[] vis) {
         vis[node] = 1;
         for (Integer it : adjLs.get(node)) {
             if (vis[it] == 0) {
@@ -29,7 +29,7 @@ public class ConnectedComponents {
                 }
             }
         }
-        int vis[] = new int[V];
+        int[] vis = new int[V];
         int cnt = 0;
         for (int i = 0; i < V; i++) {
             if (vis[i] == 0) {

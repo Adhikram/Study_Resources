@@ -19,11 +19,11 @@ public class WithFee {
         int profit = 0;
 
         if (buy == 0) { // We can buy the stock
-            profit = Math.max(0 + getAns(Arr, ind + 1, 0, n, fee, dp), -Arr[ind] + getAns(Arr, ind + 1, 1, n, fee, dp));
+            profit = Math.max(getAns(Arr, ind + 1, 0, n, fee, dp), -Arr[ind] + getAns(Arr, ind + 1, 1, n, fee, dp));
         }
 
         if (buy == 1) { // We can sell the stock
-            profit = Math.max(0 + getAns(Arr, ind + 1, 1, n, fee, dp),
+            profit = Math.max(getAns(Arr, ind + 1, 1, n, fee, dp),
                     Arr[ind] - fee + getAns(Arr, ind + 1, 0, n, fee, dp));
         }
 

@@ -30,9 +30,9 @@ public class MatrixChainMultiplication {
 
         int i = 1;
         int j = N - 1;
-        int dp[][] = new int[N][N];
+        int[][] dp = new int[N][N];
 
-        for (int row[] : dp)
+        for (int[] row : dp)
             Arrays.fill(row, -1);
         return f(arr, i, j, dp);
 
@@ -52,7 +52,7 @@ public class MatrixChainMultiplication {
     static int matrixMultiplicationTabulation(int[] arr, int N) {
         // Each cell dp[i][j] stores the minimum cost of multiplying the matrices from
         // i to j
-        int dp[][] = new int[N][N];
+        int[][] dp = new int[N][N];
 
         // When there is only one matrix in the chain i.e. i==j then the cost is 0
         for (int i = 1; i < N; i++)

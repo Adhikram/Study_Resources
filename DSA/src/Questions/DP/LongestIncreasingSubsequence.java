@@ -51,7 +51,7 @@ public class LongestIncreasingSubsequence {
     // recursive tree, in the worst case we will go till N calls at a time) and a 2D
     // array ( O(N*N+1))
 
-    static int longestIncreasingSubsequenceTabulation(int arr[], int n) {
+    static int longestIncreasingSubsequenceTabulation(int[] arr, int n) {
 
         int[][] dp = new int[n + 1][n + 1];
 
@@ -85,8 +85,8 @@ public class LongestIncreasingSubsequence {
 
     static int longestIncreasingSubsequenceOptimized(int arr[], int n) {
 
-        int next[] = new int[n + 1];
-        int cur[] = new int[n + 1];
+        int[] next = new int[n + 1];
+        int[] cur = new int[n + 1];
 
         for (int ind = n - 1; ind >= 0; ind--) {
             for (int prev_index = ind - 1; prev_index >= -1; prev_index--) {
@@ -117,7 +117,7 @@ public class LongestIncreasingSubsequence {
     // Reason: We are only using two rows of size n.
 
     public static void main(String[] args) {
-        int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60, 80 };
+        int[] arr = { 10, 22, 9, 33, 21, 50, 41, 60, 80 };
         int n = arr.length;
         System.out.println(lisRecursive(arr, n)); // 6
         System.out.println(longestIncreasingSubsequenceTabulation(arr, n)); // 6

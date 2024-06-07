@@ -40,7 +40,7 @@ public class UnboundedKnapsack {
 
         // Initialize the dp array with -1 to indicate that subproblem are not solved
         // yet
-        for (int row[] : dp)
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Call the knapsackUtil function to solve the problem

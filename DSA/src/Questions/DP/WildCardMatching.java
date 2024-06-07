@@ -59,8 +59,8 @@ public class WildCardMatching {
         int n = S1.length();
         int m = S2.length();
 
-        int dp[][] = new int[n][m];
-        for (int row[] : dp)
+        int[][] dp = new int[n][m];
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Call the recursive helper function

@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 public class CurrencyExchange {
 
-    private HashMap<String, String> parent;
-    private HashMap<String, Double> exchangeRate;
+    private final HashMap<String, String> parent;
+    private final HashMap<String, Double> exchangeRate;
 
     public CurrencyExchange() {
         parent = new HashMap<>();

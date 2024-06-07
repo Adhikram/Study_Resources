@@ -44,7 +44,7 @@ public class RodCutting {
 
         // Initialize the dp array with -1 to indicate that subproblems are not solved
         // yet
-        for (int row[] : dp)
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Call the knapsackUtil function to solve the problem
@@ -66,7 +66,7 @@ public class RodCutting {
 
         // Base condition: Initialize the dp array for the first item
         for (int i = wt[0]; i <= W; i++) {
-            dp[0][i] = ((int) i / wt[0]) * val[0];
+            dp[0][i] = (i / wt[0]) * val[0];
         }
 
         // Fill the dp array using dynamic programming
@@ -101,7 +101,7 @@ public class RodCutting {
     // Function to solve the unbounded knapsack problem
     static int unboundedKnapsackOptimized(int n, int W, int[] val, int[] wt) {
         // Create an array to store the maximum value for each capacity from 0 to W
-        int cur[] = new int[W + 1];
+        int[] cur = new int[W + 1];
 
         // Base condition: Initialize the cur array for the first item
         for (int i = wt[0]; i <= W; i++) {

@@ -97,7 +97,7 @@ public class MinimumPathSumTriangular {
     }
 
     public static void main(String args[]) {
-        int triangle[][] = { { 1 },
+        int[][] triangle = { { 1 },
                 { 2, 3 },
                 { 3, 6, 7 },
                 { 8, 9, 6, 10 } };

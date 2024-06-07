@@ -19,10 +19,10 @@ public class MakingLargerIsland {
         return row * n + col;
     }
 
-    public static int MaxConnection(int grid[][]) {
+    public static int MaxConnection(int[][] grid) {
         int n = grid.length;
-        int dr[] = { -1, 0, 1, 0 };
-        int dc[] = { 0, -1, 0, 1 };
+        int[] dr = { -1, 0, 1, 0 };
+        int[] dc = { 0, -1, 0, 1 };
         DisjointSet ds = new DisjointSet(n * n);
         // Step 1: Union adjacent 1s in the grid
         for (int row = 0; row < n; row++) {

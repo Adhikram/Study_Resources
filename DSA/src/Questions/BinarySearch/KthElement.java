@@ -52,12 +52,12 @@ public class KthElement {
             int cut1 = (low + high) >> 1;
             // Calculate the cut position in the second array
             int cut2 = k - cut1;
-            System.out.println("Low: " + low + " High: " + high + " Cut1: " + cut1 + " Cut2: " + cut2);
+//            System.out.println("Low: " + low + " High: " + high + " Cut1: " + cut1 + " Cut2: " + cut2);
             int l1 = cut1 == 0 ? Integer.MIN_VALUE : (cut1 >= m) ? arr1[m - 1] : arr1[cut1 - 1];
             int l2 = cut2 == 0 ? Integer.MIN_VALUE : (cut2 >= n) ? arr2[n - 1] : arr2[cut2 - 1];
             int r1 = cut1 >= m ? Integer.MAX_VALUE : arr1[cut1];
             int r2 = cut2 >= n ? Integer.MAX_VALUE : arr2[cut2];
-            System.out.println("Values: L1 " + l1 + " L2 " + l2 + " R1 " + r1 + " R2 " + r2);
+//            System.out.println("Values: L1 " + l1 + " L2 " + l2 + " R1 " + r1 + " R2 " + r2);
 
             // If the elements at the cut positions in both arrays are in the correct order,
             // return the maximum of them

@@ -47,7 +47,7 @@ public class AccountMerge {
         // Prepare the final merged accounts
         List<List<String>> ans = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            if (mergedMail[i].size() == 0)
+            if (mergedMail[i].isEmpty())
                 continue; // Skip if no emails in this component
             Collections.sort(mergedMail[i]); // Sort the emails
             List<String> temp = new ArrayList<>();

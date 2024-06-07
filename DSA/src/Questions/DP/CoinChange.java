@@ -18,7 +18,7 @@ public class CoinChange {
                 return 0;
         }
 
-        // If the result for this subproblem has already been calculated, return it
+        // If the result for this problem has already been calculated, return it
         if (dp[ind][T] != -1)
             return dp[ind][T];
 
@@ -137,7 +137,7 @@ public class CoinChange {
 
     // Reason: We are using an external array of size ‘T+1’ to store two rows only.
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 3 };
+        int[] arr = { 1, 2, 3 };
         int N = arr.length;
         int T = 4;
 

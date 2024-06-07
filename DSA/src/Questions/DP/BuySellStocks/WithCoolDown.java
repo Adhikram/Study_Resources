@@ -61,7 +61,7 @@ public class WithCoolDown {
         // ind: The index - 1 of the stock we are currently processing
         // buy: 0 if we can buy the stock, 1 if we can sell the stock
         // dp[ind + 1][buy] stores the maximum profit we can make at index 'ind' with
-        int dp[][] = new int[n + 2][2];
+        int[][] dp = new int[n + 2][2];
 
         // Iterate through the array backwards
         for (int ind = n - 1; ind >= 0; ind--) {
@@ -69,11 +69,11 @@ public class WithCoolDown {
                 int profit = 0;
 
                 if (buy == 0) { // We can buy the stock
-                    profit = Math.max(0 + dp[ind + 1][0], -Arr[ind] + dp[ind + 1][1]);
+                    profit = Math.max(dp[ind + 1][0], -Arr[ind] + dp[ind + 1][1]);
                 }
 
                 if (buy == 1) { // We can sell the stock
-                    profit = Math.max(0 + dp[ind + 1][1], Arr[ind] + dp[ind + 2][0]);
+                    profit = Math.max(dp[ind + 1][1], Arr[ind] + dp[ind + 2][0]);
                 }
 
                 dp[ind][buy] = profit;
@@ -105,11 +105,11 @@ public class WithCoolDown {
                 int profit = 0;
 
                 if (buy == 0) { // We can buy the stock
-                    profit = Math.max(0 + front1[0], -Arr[ind] + front1[1]);
+                    profit = Math.max(front1[0], -Arr[ind] + front1[1]);
                 }
 
                 if (buy == 1) { // We can sell the stock
-                    profit = Math.max(0 + front1[1], Arr[ind] + front2[0]);
+                    profit = Math.max(front1[1], Arr[ind] + front2[0]);
                 }
 
                 cur[buy] = profit;
