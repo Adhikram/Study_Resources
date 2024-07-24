@@ -1,6 +1,8 @@
-package Questions.Graph.DisjointSetMST;
+package Questions.Graph.UnionFind;
 
 import java.util.HashSet;
+
+import Questions.Graph.DisjointSetMST.DisjointSet;
 
 // Problem Description: Given a 2D grid of 0s and 1s, we may change at most one 0 to a 1.
 // After, what is the size of the largest island? An island is a 4-directionally connected group of 1s.
