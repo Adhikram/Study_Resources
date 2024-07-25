@@ -13,7 +13,7 @@ public class MaximumSubArrayWithSumK {
         for (int i = 0; i < n; i++) {
             // System.out.println(nums[i] + " Pre- " + prefixSum);
             prefixSum += nums[i];
-            if(prefixSum == k){
+            if (prefixSum == k) {
                 result = i + 1;
             }
             if (hash.containsKey(prefixSum - k)) {
@@ -34,25 +34,25 @@ public class MaximumSubArrayWithSumK {
 
     /*
      * Time complexity: O(n) Space complexity: O(n)
-     
+     *
      */
     public static int getLongestSubArrayOptimized(int[] nums, int k) {
         // DP approach
         int sum = 0;
         int preSum = 0;
-        for(int num: nums){
+        for (int num : nums) {
             preSum += num;
             sum = Math.max(sum, preSum);
         }
-        if(sum < k){
+        if (sum < k) {
             return 0;
         }
-        int[] store = new int[sum+1];
+        int[] store = new int[sum + 1];
         Arrays.fill(store, -1);
         store[0] = 0;
-        for(int i = 1; i <= k; i++){
-            for(int j = 0 ; j < nums.length; j++){
-                if(i >= nums[j] && store[i - nums[j]] != -1){
+        for (int i = 1; i <= k; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                if (i >= nums[j] && store[i - nums[j]] != -1) {
                     store[i] = Math.max(store[i], store[i - nums[j]] + 1);
                 }
             }
@@ -63,7 +63,7 @@ public class MaximumSubArrayWithSumK {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[] { 1, 1, 1, 0};
+        int[] nums = new int[] { 1, 1, 1, 0 };
         System.out.println(getLongestSubArray(nums, 3));
         System.out.println(getLongestSubArrayOptimized(nums, 3));
     }

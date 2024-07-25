@@ -50,6 +50,9 @@ public class MergeAlternatively {
         }
         return merged.toString();
     }
+    // Optimize the code by using StringBuilder instead of String
+    // Time complexity: O(n)
+    // Space complexity: O(n)
 
     public static void main(String[] args) {
         MergeAlternatively obj = new MergeAlternatively();
