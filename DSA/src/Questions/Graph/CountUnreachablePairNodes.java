@@ -38,7 +38,7 @@ public class CountUnreachablePairNodes {
         for (int i = 0; i < n; i++) {
             neighbors[i] = new ArrayList<>();
         }
-        for (var edge : edges) {
+        for (int[] edge : edges) {
             neighbors[edge[0]].add(edge[1]);
             neighbors[edge[1]].add(edge[0]);
         }
@@ -61,7 +61,7 @@ public class CountUnreachablePairNodes {
         visited[node] = true;
         int ans = 1;
 
-        for (var neighbor : neighbors[node]) {
+        for (int neighbor : neighbors[node]) {
             if (!visited[neighbor]) {
                 ans += dfs(neighbor, neighbors, visited);
             }
@@ -73,7 +73,7 @@ public class CountUnreachablePairNodes {
     public static void main(String[] args) {
         CountUnreachablePairNodes obj = new CountUnreachablePairNodes();
         int n = 5;
-        int[][] edges = { { 0, 1 }, { 1, 2 }, { 2, 3 }, { 1, 3 }, { 1, 4 } };
+        int[][] edges = { { 0, 1 }, { 1, 2 }, { 2, 3 }, { 1, 3 }, { 1, 4 } }; // 4
         System.out.println(obj.countPairs(n, edges));
     }
 }

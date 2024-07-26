@@ -1,10 +1,20 @@
-package Questions.Graph;
+package Questions.Graph.PathDecisions;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
+
 public class MinimumMultiplications {
+    static class Pair {
+        int first;
+        int second;
+
+        public Pair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
     public int minimumMultiplications(int[] arr, int start, int end) {
         // Create a queue for storing pairs of numbers (number, steps)
         Queue<Pair> queue = new LinkedList<>();

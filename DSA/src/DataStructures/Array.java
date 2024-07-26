@@ -59,5 +59,15 @@ public class Array {
 
     int [][] grid = new int[3][3];
     Arrays.stream(grid).forEach(row -> Arrays.fill(row, 1));
+
+    // To set the Adj list 
+    List<Integer>[] adjList = new List[10];
+    Arrays.setAll(adjList, k -> new ArrayList<>());
+    adjList.stream().forEach(System.out::println);
+    // for (int[] e : edges) {
+    //   g[e[0]].add(e[1]);
+    //   g[e[1]].add(e[0]);
+    // }
+
   }
 }

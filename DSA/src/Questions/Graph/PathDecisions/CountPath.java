@@ -1,10 +1,20 @@
-package Questions.Graph;
+package Questions.Graph.PathDecisions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class CountPath {
+    static class Pair {
+        int first;
+        int second;
+
+        public Pair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
+
     static int countPaths(int n, ArrayList<ArrayList<Integer>> roads) {
 
         // Creating an adjacency list for the given graph.
@@ -63,7 +73,7 @@ public class CountPath {
         // (n-1)th node modulo 10^9+7.
         return ways[n - 1] % mod;
     }
-    
+
     // Time Complexity: O( E* log(V)) { As we are using simple Dijkstra’s algorithm
     // here, the time complexity will be or the order E*log(V)}
     // Space complexity: O(N)

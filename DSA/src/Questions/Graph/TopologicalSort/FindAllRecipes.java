@@ -1,4 +1,4 @@
-package Questions.Graph;
+package Questions.Graph.TopologicalSort;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,8 +1,8 @@
-package Questions.Graph;
+package Questions.Graph.PathDecisions;
 
 import java.util.*;
 
-import Questions.Graph.Dijkstra.Pair;
+import Questions.Graph.PathDecisions.Dijkstra.Pair;
 
 class Prims {
 

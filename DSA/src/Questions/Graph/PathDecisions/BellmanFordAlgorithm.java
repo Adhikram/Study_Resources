@@ -1,4 +1,4 @@
-package Questions.Graph;
+package Questions.Graph.PathDecisions;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package Questions.Graph;
+package Questions.Graph.TopologicalSort;
 
 /*
 https://leetcode.com/problems/parallel-courses-ii/description/

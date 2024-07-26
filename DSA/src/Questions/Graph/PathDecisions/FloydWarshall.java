@@ -1,4 +1,4 @@
-package Questions.Graph;
+package Questions.Graph.PathDecisions;
 
 public class FloydWarshall {
     public void shortestDistance(int[][] matrix) {
