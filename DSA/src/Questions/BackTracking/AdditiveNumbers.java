@@ -1,4 +1,4 @@
-package Questions.String;
+package Questions.BackTracking;
 /*
 https://leetcode.com/problems/additive-number/
  An additive number is a string whose digits can form an additive sequence.
