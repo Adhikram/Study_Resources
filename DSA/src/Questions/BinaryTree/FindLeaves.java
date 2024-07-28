@@ -50,14 +50,13 @@ public class FindLeaves {
     }
 
     public static void main(String[] args) {
-        FindLeaves findLeaves = new FindLeaves();
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
         root.right.right = new TreeNode(6);
-        List<List<Integer>> result = findLeaves.findLeaves(root);
+        List<List<Integer>> result = findLeaves(root);
         for (List<Integer> list : result) {
             for (int num : list) {
                 System.out.print(num + " ");
