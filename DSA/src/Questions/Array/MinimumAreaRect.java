@@ -29,7 +29,7 @@ points[i].length == 2
 All the given points are unique.
  */
 public class MinimumAreaRect {
-    public double minAreaFreeRect(int[][] points) {
+    public static double minAreaFreeRect(int[][] points) {
         int n = points.length;
         double area = Double.MAX_VALUE;
         Set<String> pointSet = new HashSet<>();
@@ -37,8 +37,8 @@ public class MinimumAreaRect {
             pointSet.add(point[0] + "," + point[1]);
         }
         for (int i = 0; i < n; i++) {
-            for (int j = i+1; j < n; j++) {
-                for (int k = j+1; k < n; k++) {
+            for (int j = i + 1; j < n; j++) {
+                for (int k = j + 1; k < n; k++) {
                     // Check if the points are diagonals of a rectangle
                     int dx1 = points[k][0] - points[i][0];
                     int dy1 = points[k][1] - points[i][1];
@@ -46,13 +46,14 @@ public class MinimumAreaRect {
                     int dy2 = points[j][1] - points[i][1];
                     // Dot product of the edges are 0 when perpendicular
                     /*
-                        If the dot product of the two edges is 0, then the two edges are perpendicular to each other.
+                     * If the dot product of the two edges is 0, then the two edges are
+                     * perpendicular to each other.
                      */
-                    if (dy1*dy2 + dx1*dx2 == 0) {
+                    if (dy1 * dy2 + dx1 * dx2 == 0) {
                         int xl = points[j][0] + dx1;
                         int yl = points[j][1] + dy1;
                         if (pointSet.contains(xl + "," + yl)) {
-                            area = Math.min(area, Math.sqrt(dx1*dx1 + dy1*dy1) * Math.sqrt(dx2*dx2 + dy2*dy2));
+                            area = Math.min(area, Math.sqrt(dx1 * dx1 + dy1 * dy1) * Math.sqrt(dx2 * dx2 + dy2 * dy2));
                         }
                     }
                 }
@@ -60,11 +61,10 @@ public class MinimumAreaRect {
         }
         return area == Double.MAX_VALUE ? 0 : area;
     }
-    }
+
 
     public static void main(String[] args) {
-        MinimumAreaRect obj = new MinimumAreaRect();
         int[][] points = { { 1, 1 }, { 1, 3 }, { 3, 1 }, { 3, 3 }, { 2, 2 } };
-        System.out.println(obj.minAreaRect(points));
+        System.out.println(minAreaFreeRect(points));
     }
 }

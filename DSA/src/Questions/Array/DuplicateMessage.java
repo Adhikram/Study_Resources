@@ -1,7 +1,6 @@
 package Questions.Array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 // if the message is duplicated anytime in the 10 sec duration remove all occurances and dont print any one , Not even the 1st one . 
