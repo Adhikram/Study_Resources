@@ -54,16 +54,8 @@ public class MostStones {
             stoneNodes.put(nodeCol, 1); // Mark column node as seen
         }
 
-        // Count the number of unique sets (represents maximum removable stones)
-        int cnt = 0;
-        for (Map.Entry<Integer, Integer> it : stoneNodes.entrySet()) {
-            if (ds.findUPar(it.getKey()) == it.getKey()) {
-                cnt++;
-            }
-        }
-
         // Return the maximum number of stones that can be removed
-        return n - cnt;
+        return n - ds.components;
     }
 
     public static void main(String[] args) {

@@ -71,4 +71,9 @@ public class UniqueBinarySearchTree {
         }
         return res;
     }
+    public static void main(String[] args) {
+        UniqueBinarySearchTree uniqueBinarySearchTree = new UniqueBinarySearchTree();
+        List<TreeNode> result = uniqueBinarySearchTree.generateTrees(3);
+        System.out.println(result.size());
+    }
 }

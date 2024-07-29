@@ -80,7 +80,7 @@ public class AlienDictionary {
 
         System.out.println(ans);
     }
-    public String alienOrder(String[] words) {
+    public  String alienOrder(String[] words) {
         if(words.length==0)
             return "";
         Map<Character,Integer>inDegree=new HashMap<>();

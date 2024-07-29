@@ -76,7 +76,7 @@ public class FindAllRecipes {
             index.put(recipes[i], i);
         }
 
-        int[] indegree = new int[recipes.length];
+        int[] inDegree = new int[recipes.length];
         // create a mapping of all the recipes that are Ingredients as well
         // to the recipes they are ingredients for
         for (int i = 0; i < recipes.length; i++) {
@@ -89,14 +89,14 @@ public class FindAllRecipes {
                 // add the recipe as an ingredient for the recipe
                 System.out.println("Need: " + need + " Recipe: " + recipes[i]);
                 map.get(need).add(recipes[i]);
-                indegree[i]++;
+                inDegree[i]++;
             }
         }
 
         LinkedList<Integer> q = new LinkedList<>();
         // add all the recipes with indegree 0 to the queue
         for (int i = 0; i < recipes.length; i++) {
-            if (indegree[i] == 0) {
+            if (inDegree[i] == 0) {
                 q.add(i);
             }
         }
@@ -117,7 +117,7 @@ public class FindAllRecipes {
 
             for (String recipe : map.get(recipes[i])) {
                 System.out.println("Recipe: " + recipe);
-                if (--indegree[index.get(recipe)] == 0) {
+                if (--inDegree[index.get(recipe)] == 0) {
                     System.out.println("Adding: " + recipe);
                     q.add(index.get(recipe));
                 }

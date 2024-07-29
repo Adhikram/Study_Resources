@@ -1,4 +1,4 @@
-package Questions.Array;
+package Questions.StackQueue;
 
 import java.util.LinkedList;
 import java.util.Queue;

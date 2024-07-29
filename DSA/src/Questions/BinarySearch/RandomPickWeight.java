@@ -78,8 +78,6 @@ public class RandomPickWeight {
     }
     public static void main(String[] args) {
         int arr[] = { 3, 34, 4, 12, 5, 2 };
-        int n = arr.length;
-        int k = 9;
         RandomPickWeight randomPickWeight = new RandomPickWeight(arr);
         System.out.println(randomPickWeight.pickIndex());
     }

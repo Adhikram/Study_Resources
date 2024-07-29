@@ -43,7 +43,7 @@ public class NumberWithSameConsecutiveDiff {
 
     }
 
-    public int[] numsSameConsecDiff(int n, int k) {
+    public int[] numsSameConsedDiff(int n, int k) {
         ArrayList<Integer> result = new ArrayList();
 
         for (int i = 1; i <= 9; i++) {
@@ -55,6 +55,6 @@ public class NumberWithSameConsecutiveDiff {
 
     public static void main(String[] args) {
         NumberWithSameConsecutiveDiff numberWithSameConsecutiveDiff = new NumberWithSameConsecutiveDiff();
-        numberWithSameConsecutiveDiff.numsSameConsecDiff(3, 7);
+        numberWithSameConsecutiveDiff.numsSameConsedDiff(3, 7);
     }
 }

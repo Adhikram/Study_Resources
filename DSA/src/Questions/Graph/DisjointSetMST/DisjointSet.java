@@ -7,8 +7,10 @@ public class DisjointSet {
     List<Integer> rank = new ArrayList<>();
     List<Integer> parent = new ArrayList<>();
     List<Integer> size = new ArrayList<>();
+    int components;
 
     public DisjointSet(int n) {
+        components = n;
         for (int i = 0; i <= n; i++) {
             rank.add(0);
             parent.add(i);
@@ -17,13 +19,7 @@ public class DisjointSet {
     }
 
     public int getParentCount() {
-        int count = 0;
-        for (int i = 0; i < parent.size(); i++) {
-            if (parent.get(i) == i) {
-                count++;
-            }
-        }
-        return count;
+        return components;
     }
 
     public int findUPar(int node) {
@@ -39,6 +35,7 @@ public class DisjointSet {
         int ulp_u = findUPar(u);
         int ulp_v = findUPar(v);
         if (ulp_u == ulp_v) return;
+        components--;
         if (rank.get(ulp_u) < rank.get(ulp_v)) {
             parent.set(ulp_u, ulp_v);
         } else if (rank.get(ulp_v) < rank.get(ulp_u)) {
@@ -54,6 +51,7 @@ public class DisjointSet {
         int ulp_u = findUPar(u);
         int ulp_v = findUPar(v);
         if (ulp_u == ulp_v) return;
+        components--;
         if (size.get(ulp_u) < size.get(ulp_v)) {
             parent.set(ulp_u, ulp_v);
             size.set(ulp_v, size.get(ulp_v) + size.get(ulp_u));

@@ -49,9 +49,9 @@ public class RowWithMax1s {
         ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
         matrix.add(new ArrayList<>(Arrays.asList(0, 1, 1)));
         matrix.add(new ArrayList<>(Arrays.asList(0, 0, 1)));
-        matrix.add(new ArrayList<>(Arrays.asList(1, 0, 1)));
+        matrix.add(new ArrayList<>(Arrays.asList(0, 1, 1)));
         matrix.add(new ArrayList<>(Arrays.asList(0, 0, 0)));
-        matrix.add(new ArrayList<>(Arrays.asList(1, 1, 1)));
+        matrix.add(new ArrayList<>(Arrays.asList(0, 0, 0)));
 
         int n = 5, m = 3;
         // Find the row with the maximum number of 1's in the binary matrix

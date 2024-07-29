@@ -16,7 +16,6 @@ Note that
 
 |x| denotes the absolute value of x.
 A pair of indices (i1, j1) is lexicographically smaller than (i2, j2) if i1 < i2 or i1 == i2 and j1 < j2.
- 
 
 Example 1:
 

@@ -43,7 +43,9 @@ public class RedundantPath {
         if (parents.getOrDefault(elem, -1) == -1) {
             return elem;
         }
-        return findParent(parents, parents.get(elem));
+        int result = findParent(parents, parents.get(elem));
+        parents.put(elem, result);
+        return result;
     }
 
     public int[] findRedundantConnection(int[][] edges) {

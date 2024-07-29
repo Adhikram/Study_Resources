@@ -97,4 +97,11 @@ public class MaxScoreWords {
         }
         return max; // Return the maximum score found for this path
     }
+    public static void main(String[] args) {
+        MaxScoreWords maxScoreWords = new MaxScoreWords();
+        String[] words = {"dog","cat","dad","good"};
+        char[] letters = {'a','a','c','d','d','d','g','o','o'};
+        int[] score = {1,0,9,5,0,0,3,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0};
+        System.out.println(maxScoreWords.maxScoreWords(words, letters, score)); // 23
+    }
 }

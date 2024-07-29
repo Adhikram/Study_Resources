@@ -58,8 +58,8 @@ public class MakingLargerIsland {
                     }
                 }
                 int sizeTotal = 0;
-                for (Integer parents : components) {
-                    sizeTotal += ds.size.get(parents);
+                for (Integer parent : components) {
+                    sizeTotal += ds.size.get(parent);
                 }
                 mx = Math.max(mx, sizeTotal + 1);
             }

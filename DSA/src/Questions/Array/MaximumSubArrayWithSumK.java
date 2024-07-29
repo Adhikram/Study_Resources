@@ -37,33 +37,30 @@ public class MaximumSubArrayWithSumK {
      *
      */
     public static int getLongestSubArrayOptimized(int[] nums, int k) {
-        // DP approach
+        int maxLength = 0;
         int sum = 0;
-        int preSum = 0;
-        for (int num : nums) {
-            preSum += num;
-            sum = Math.max(sum, preSum);
-        }
-        if (sum < k) {
-            return 0;
-        }
-        int[] store = new int[sum + 1];
-        Arrays.fill(store, -1);
-        store[0] = 0;
-        for (int i = 1; i <= k; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (i >= nums[j] && store[i - nums[j]] != -1) {
-                    store[i] = Math.max(store[i], store[i - nums[j]] + 1);
-                }
+        int start = 0;
+
+        for (int end = 0; end < nums.length; end++) {
+            sum += nums[end];
+
+            // Shrink the window as long as the sum is greater than k
+            while (sum > k) {
+                sum -= nums[start];
+                start++;
+            }
+
+            // Check if the current window's sum is equal to k
+            if (sum == k) {
+                maxLength = Math.max(maxLength, end - start + 1);
             }
         }
 
-        return store[k];
-
+        return maxLength;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[] { 1, 1, 1, 0 };
+        int[] nums = new int[] { 1, -1, 1, 0 , 2, -10};
         System.out.println(getLongestSubArray(nums, 3));
         System.out.println(getLongestSubArrayOptimized(nums, 3));
     }

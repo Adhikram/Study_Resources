@@ -1,4 +1,5 @@
 package Questions.Graph;
+
 /*
 https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/description/
  You are given the root of a binary tree with n nodes. Each node is uniquely assigned a value from 1 to n. You are also given an integer startValue representing the value of the start node s, and a different integer destValue representing the value of the destination node t.
@@ -76,8 +77,9 @@ public class GetDirection {
                 ++i;
             return "U".repeat(s.length() - i) + d.reverse().toString().substring(i);
         }
-        
+
     }
+
     public static void main(String[] args) {
         GetDirection getDirection = new GetDirection();
         TreeNode root = getDirection.new TreeNode(5);

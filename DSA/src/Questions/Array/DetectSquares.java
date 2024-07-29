@@ -102,6 +102,7 @@ class DetectSquares { // 128 ms, faster than 60.00%
         for (int[] p3 : points) {
             int x3 = p3[0], y3 = p3[1];
             if (Math.abs(x1-x3) == 0 || Math.abs(x1-x3) != Math.abs(y1-y3))
+            //Can add another condition to check if the square is not axis-aligned
                 continue; // Skip empty square or invalid square point!
             ans += cntPoints[x1][y3] * cntPoints[x3][y1];
         }

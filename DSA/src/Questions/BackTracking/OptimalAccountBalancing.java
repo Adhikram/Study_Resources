@@ -6,7 +6,8 @@ import java.util.Map;
 
 /*
 https://leetcode.com/problems/optimal-account-balancing/description/
- You are given an array of transactions transactions where transactions[i] = [fromi, toi, amounti] indicates that the person with ID = fromi gave amounti $ to the person with ID = toi.
+ You are given an array of transactions transactions where transactions[i] = [fromi, toi, amounti] 
+ indicates that the person with ID = fromi gave amounti $ to the person with ID = toi.
 
 Return the minimum number of transactions required to settle the debt.
 
@@ -50,7 +51,6 @@ public class OptimalAccountBalancing {
             m.put(t[1], m.getOrDefault(t[1], 0) + t[2]);
         }
         ArrayList<Integer> debt = new ArrayList();
-        int i = 0;
         for (int d : m.values()) {
             if (d != 0) {
                 debt.add(d);

@@ -56,8 +56,7 @@ public class FindTheCityWithSmallestNumberOfNeighbors {
         int res = 0, smallest = n;
         for (int[] row : dis)
             Arrays.fill(row, 10001);
-        for (int[] e : edges)
-            dis[e[0]][e[1]] = dis[e[1]][e[0]] = e[2];
+       
         for (int i = 0; i < n; ++i)
             dis[i][i] = 0;
         for (int k = 0; k < n; ++k)
