@@ -2,5 +2,8 @@
     "cSpell.words": [
         "nums"
     ],
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.sourcePaths": [
+        "DSA/src"
+    ]
 }
