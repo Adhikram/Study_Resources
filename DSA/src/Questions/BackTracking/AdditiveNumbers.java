@@ -22,16 +22,16 @@ Example 2:
 
 Input: "199100199"
 Output: true
-Explanation: 
-The additive sequence is: 1, 99, 100, 199. 
+Explanation:
+The additive sequence is: 1, 99, 100, 199.
 1 + 99 = 100, 99 + 100 = 199
- 
+
 
 Constraints:
 
 1 <= num.length <= 35
 num consists only of digits.
- 
+
 
 Follow up: How would you handle overflow for very large input integers?
 Time Complexity: O(n^2)
