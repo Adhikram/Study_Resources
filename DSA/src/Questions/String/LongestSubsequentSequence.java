@@ -1,4 +1,4 @@
-package Questions.Array;
+package Questions.String;
 
 import java.util.HashMap;
 

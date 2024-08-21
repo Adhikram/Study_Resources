@@ -1,6 +1,5 @@
 package Questions.Array;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class MaximumSubArrayWithSumK {
@@ -60,7 +59,7 @@ public class MaximumSubArrayWithSumK {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[] { 1, -1, 1, 0 , 2, -10};
+        int[] nums = new int[] { 1, -1, 1, 0, 2, -10 };
         System.out.println(getLongestSubArray(nums, 3));
         System.out.println(getLongestSubArrayOptimized(nums, 3));
     }

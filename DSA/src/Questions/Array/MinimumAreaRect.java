@@ -54,7 +54,13 @@ public class MinimumAreaRect {
                         int xl = points[j][0] + dx1;
                         int yl = points[j][1] + dy1;
                         if (pointSet.contains(xl + "," + yl)) {
-                            area = Math.min(area, Math.sqrt(dx1 * dx1 + dy1 * dy1) * Math.sqrt(dx2 * dx2 + dy2 * dy2));
+                            // Calculate the area
+                            double edge1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
+                            double edge2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+                            double currentArea = edge1 * edge2;
+
+                            // Update the minimum area
+                            area = Math.min(area, currentArea);
                         }
                     }
                 }
@@ -62,7 +68,6 @@ public class MinimumAreaRect {
         }
         return area == Double.MAX_VALUE ? 0 : area;
     }
-
 
     public static void main(String[] args) {
         int[][] points = { { 1, 1 }, { 1, 3 }, { 3, 1 }, { 3, 3 }, { 2, 2 } };

@@ -38,7 +38,7 @@ public class FindMinInRotatedSortedArray {
         int left = 0;
         int right = nums.length - 1;
 
-        while (left < right) {
+        while (left <= right) {
             int mid = (right + left) >> 1;
 
             if (nums[mid] < nums[right]) {
@@ -57,7 +57,7 @@ public class FindMinInRotatedSortedArray {
         int left = 0;
         int right = nums.length - 1;
 
-        while (left < right) {
+        while (left <= right) {
             int mid = (right + left) >> 1;
 
             if (nums[mid] < nums[right]) {

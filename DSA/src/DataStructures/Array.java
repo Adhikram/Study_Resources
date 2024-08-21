@@ -68,5 +68,15 @@ public class Array {
     // g[e[1]].add(e[0]);
     // }
 
+
+    /*
+    Convert a List<List<Integer>> to int[][]
+    List<List<Integer>> list = new ArrayList<>();
+    int[][] res = list.stream().map(l -> l.stream().mapToInt(i -> i).toArray()).toArray(int[][]::new);
+
+    Convert a List<int[]> to int[][]
+    List<int[]> result = new ArrayList<>();
+    int[][] res = result.toArray(new int[result.size()][]);
+    */
   }
 }

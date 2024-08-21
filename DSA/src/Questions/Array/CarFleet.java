@@ -76,6 +76,7 @@ public class CarFleet {
         for (int i = time.length - 1; i >= 0; i--) {
             // If the current time is greater than maxi, it means this car or fleet
             // will form a new fleet
+            System.out.println(time[i]);
             if (time[i] > maxi) {
                 count++;
                 maxi = time[i];

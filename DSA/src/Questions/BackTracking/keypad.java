@@ -31,6 +31,6 @@ public class keypad {
 
     public static void main(String[] args) {
         keypad k = new keypad();
-        System.out.println(k.letterCombinations("23"));
+        System.out.println(k.letterCombinations("223"));
     }
 }

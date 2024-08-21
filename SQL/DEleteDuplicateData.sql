@@ -16,17 +16,17 @@ where ctid in (
         having count(1) > 1
     );
 -- Solution 3:
+with duplicates as (
+    select model_id
+    from (
+        select model_id,
+            row_number() over(
+                partition by model_name, brand
+                order by model_id
+            ) as rn
+        from cars
+    ) x
+    where x.rn > 1
+)
 delete from cars
-where model_id in (
-        select model_id
-        from (
-                select *,
-                    row_number() over(
-                        partition by model_name,
-                        brand
-                        order by model_id
-                    ) as rn
-                from cars
-            ) x
-        where x.rn > 1
-    );
+where model_id in (select model_id from duplicates);

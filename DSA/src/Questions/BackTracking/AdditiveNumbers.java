@@ -34,7 +34,7 @@ num consists only of digits.
 
 
 Follow up: How would you handle overflow for very large input integers?
-Time Complexity: O(n^2)
+Time Complexity: O(n^3)
 Space Complexity: O(1)
  */
 public class AdditiveNumbers {

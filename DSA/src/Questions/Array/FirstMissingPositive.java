@@ -1,5 +1,7 @@
 package Questions.Array;
 
+import java.util.Arrays;
+
 /*
 https://leetcode.com/problems/first-missing-positive/description/
 Given an unsorted integer array nums. Return the smallest positive integer that is not present in nums.
@@ -49,17 +51,19 @@ public class FirstMissingPositive {
                 index++;
             }
         }
-
+        Arrays.stream(nums).forEach(System.out::println);
         for (int i = 0; i < n; i++) {
             if (nums[i] != i + 1) {
                 return i + 1;
             }
         }
+
         return nums.length + 1;
     }
+
     public static void main(String[] args) {
         FirstMissingPositive obj = new FirstMissingPositive();
-        int[] nums = {3,4,-1,1};
+        int[] nums = { 3, 4, -1, 1 };
         System.out.println(obj.firstMissingPositive(nums));
     }
 }

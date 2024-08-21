@@ -3,11 +3,11 @@ package Questions.Array;
 public class KadensAlgo {
     static int kadensAlgo(int[] arr) {
         int maxSum = Integer.MIN_VALUE;
-        int currSum = 0;
+        int curSum = 0;
         for (int i : arr) {
-            currSum += i;
-            maxSum = Math.max(maxSum, currSum);
-            currSum = Math.max(currSum, 0);
+            curSum += i;
+            maxSum = Math.max(maxSum, curSum);
+            curSum = Math.max(curSum, 0);
         }
         return maxSum;
     }
