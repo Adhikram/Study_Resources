@@ -1,4 +1,4 @@
-package Questions.Array;
+package Questions.DP;
 
 import java.util.Arrays;
 

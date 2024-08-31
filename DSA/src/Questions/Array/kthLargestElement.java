@@ -1,32 +1,73 @@
 package Questions.Array;
 
 import java.util.PriorityQueue;
+import java.util.Random;
 
+/*
+ https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+
+ Given an integer array nums and an integer k, return the kth largest element in the array.
+
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Can you solve it without sorting?
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+Example 2:
+
+Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
+ 
+
+Constraints:
+
+1 <= k <= nums.length <= 105
+-104 <= nums[i] <= 104
+ */
 public class kthLargestElement {
-    public int quickSelect(int[] nums, int k, int left, int pv) {
-        int pivot = nums[pv];
-        int i = left;
-        // We will place all the elements smaller than pivot to the left of pivot
-        for (int j = left; j < pv; j++) {
-            if (nums[j] < pivot) {
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                i++;
+    private Random rand = new Random();
+
+    public int quickSelect(int[] nums, int k, int left, int right) {
+        if (left == right) {
+            return nums[left];
+        }
+
+        int pivotIndex = left + rand.nextInt(right - left + 1);
+        pivotIndex = partition(nums, left, right, pivotIndex);
+
+        if (k == pivotIndex) {
+            return nums[k];
+        } else if (k < pivotIndex) {
+            return quickSelect(nums, k, left, pivotIndex - 1);
+        } else {
+            return quickSelect(nums, k, pivotIndex + 1, right);
+        }
+    }
+
+    private int partition(int[] nums, int left, int right, int pivotIndex) {
+        int pivot = nums[pivotIndex];
+        swap(nums, pivotIndex, right);
+        int storeIndex = left;
+
+        for (int i = left; i < right; i++) {
+            if (nums[i] < pivot) {
+                swap(nums, storeIndex, i);
+                storeIndex++;
             }
         }
-        // Swap the pivot element with the element at i
-        int temp = nums[i];
-        nums[i] = nums[pv];
-        nums[pv] = temp;
+        swap(nums, right, storeIndex);
+        return storeIndex;
+    }
 
-        if (i == k) {
-            return nums[i];
-        } else if (i < k) {
-            return quickSelect(nums, k, i + 1, pv);
-        } else {
-            return quickSelect(nums, k, left, i - 1);
-        }
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
     /*
      * Time complexity: O(n) Space complexity: O(n)
@@ -51,7 +92,7 @@ public class kthLargestElement {
 
     public static void main(String[] args) {
         kthLargestElement kthLargestElement = new kthLargestElement();
-        int[] nums = {3, 2, 1, 5, 6, 4};
+        int[] nums = { 3, 2, 1, 5, 6, 4 };
         int k = 2;
         System.out.println(kthLargestElement.findKthLargest(nums, k));
         System.out.println(kthLargestElement.quickSelect(nums, nums.length - k, 0, nums.length - 1));
