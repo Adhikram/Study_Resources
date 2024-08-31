@@ -4,7 +4,6 @@ import java.util.Stack;
 
 public class AstroidCollision {
     public int[] asteroidCollision(int[] asteroids) {
-        int n = asteroids.length;
         Stack<Integer> s = new Stack<>();
         for (int asteroid : asteroids) {
             if (asteroid > 0 || s.isEmpty()) {

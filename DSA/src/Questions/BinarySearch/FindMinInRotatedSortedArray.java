@@ -38,7 +38,7 @@ public class FindMinInRotatedSortedArray {
         int left = 0;
         int right = nums.length - 1;
 
-        while (left <= right) {
+        while (left < right) {
             int mid = (right + left) >> 1;
 
             if (nums[mid] < nums[right]) {
@@ -57,25 +57,29 @@ public class FindMinInRotatedSortedArray {
         int left = 0;
         int right = nums.length - 1;
 
-        while (left <= right) {
+        while (left < right) {
             int mid = (right + left) >> 1;
 
-            if (nums[mid] < nums[right]) {
-                right = mid - 1;
-            } else if (nums[mid] > nums[right]) {
+            if (nums[mid] > nums[left]) {
                 left = mid;
+            } else if (nums[mid] < nums[left]) {
+                right = mid - 1;
             } else {
-                right--; // nums[mid] == nums[right], reduce the search space
+                left++; // nums[mid] == nums[left], reduce the search space
             }
         }
 
         return nums[left];
     }
 
+
     public static void main(String[] args) {
         FindMinInRotatedSortedArray findMinInRotatedSortedArray = new FindMinInRotatedSortedArray();
         int[] nums = { 3, 4, 5, 6, 1, 2 };
         System.out.println(findMinInRotatedSortedArray.findMin(nums)); // 1
-        System.out.println(findMinInRotatedSortedArray.findMax(nums)); // 5
+        System.out.println(findMinInRotatedSortedArray.findMax(nums)); // 6
+        int []nums2 = {2, 2, 2, 3};
+        System.out.println(findMinInRotatedSortedArray.findMin(nums2)); // 0
+        System.out.println(findMinInRotatedSortedArray.findMax(nums2)); // 2
     }
 }

@@ -42,7 +42,7 @@ public class FindRotationCount {
                 // Eliminate right half:
                 high = mid - 1;
             }
-            System.out.println("low: " + low + " mid: " + mid + " high: " + high);
+            // System.out.println("low: " + low + " mid: " + mid + " high: " + high);
         }
         return index;
     }
@@ -53,12 +53,12 @@ public class FindRotationCount {
         while (start < end) {
 
             int mid = (start + end) / 2;
-            System.out.println("start: " + start + " mid: " + mid + " end: " + end);
+            // System.out.println("start: " + start + " mid: " + mid + " end: " + end);
             if (nums[end] > nums[mid]) {
-                System.out.println("RIGHT " + nums[mid] + " " + nums[end]);
+                // System.out.println("RIGHT " + nums[mid] + " " + nums[end]);
                 end = mid;
             } else {
-                System.out.println("LEFT " + nums[start] + " " + nums[mid]);
+                // System.out.println("LEFT " + nums[start] + " " + nums[mid]);
                 start = mid + 1;
             }
         }
@@ -72,8 +72,10 @@ public class FindRotationCount {
         int[] arr = {4, 5, 6, 7, 0, 1, 2, 3};
         int ans = findKRotation(arr);
         System.out.println("The array is rotated " + ans + " times.");
+        System.out.println("Min: " + new FindRotationCount().findMin(arr));
         int[] arr2 = {4, 5, 6, 7, 0, 1, 2, 3};
         int ans2 = findKRotation(arr2);
         System.out.println("The array is rotated " + ans2 + " times.");
+        System.out.println("Min: " + new FindRotationCount().findMin(arr2));
     }
 }

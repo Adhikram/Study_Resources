@@ -57,16 +57,16 @@ public class ShipWithInDays {
             right += weight;
         }
 
-        while (left < right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             if (canShip(weights, days, mid)) {
-                right = mid;
+                right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
 
-        return left;
+        return left ;
     }
 
     private boolean canShip(int[] weights, int days, int capacity) {

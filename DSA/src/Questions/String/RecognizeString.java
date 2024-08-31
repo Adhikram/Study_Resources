@@ -29,17 +29,12 @@ public class RecognizeString {
     public String reorganizeString(String s) {
         int[] freq = new int[26]; // to Store Frequency of each alphabet
         char[] arr = s.toCharArray();
-
+        int max = 0, letter = 0;
         for (int i = 0; i < arr.length; i++) { // store the frequency
             freq[arr[i] - 'a']++;
-        }
-
-        int max = 0, letter = 0;
-
-        for (int i = 0; i < 26; i++) { // find the max frequency
-            if (freq[i] > max) {
-                max = freq[i];
-                letter = i;
+            if (freq[arr[i] - 'a'] > max) {
+                max = freq[arr[i] - 'a'];
+                letter = arr[i] - 'a';
             }
         }
 

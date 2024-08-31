@@ -1,9 +1,5 @@
 package Questions.StackQueue;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /*
 https://leetcode.com/problems/buildings-with-an-ocean-view/description/
@@ -13,7 +9,6 @@ The ocean is to the right of the buildings. A building has an ocean view if the 
 
 Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.
 
- 
 
 Example 1:
 
@@ -41,10 +36,10 @@ public class BuildingWithOceanView {
 
         // // Traverse from right to left
         // for (int i = n - 1; i >= 0; i--) {
-        //     if (heights[i] > maxHeight) {
-        //         result.add(i);
-        //         maxHeight = heights[i];
-        //     }
+        // if (heights[i] > maxHeight) {
+        // result.add(i);
+        // maxHeight = heights[i];
+        // }
         // }
 
         // // Reverse to get the indices in increasing order
@@ -55,22 +50,23 @@ public class BuildingWithOceanView {
         int idx = len - 1;
         int max = heights[idx];
         heights[idx] = idx;
-        idx --;
+        idx--;
 
-        for (int i = len - 2; i >= 0; i --) {
-        if (heights[i] > max) {
-        max = heights[i];
-        heights[idx] = i;
-        idx --;
-        }
+        for (int i = len - 2; i >= 0; i--) {
+            if (heights[i] > max) {
+                max = heights[i];
+                heights[idx] = i;
+                idx--;
+            }
         }
 
         return Arrays.copyOfRange(heights, idx + 1, len);
     }
+
     public static void main(String[] args) {
         BuildingWithOceanView buildingWithOceanView = new BuildingWithOceanView();
-        System.out.println(Arrays.toString(buildingWithOceanView.findBuildings(new int[]{4, 2, 3, 1})));
-        System.out.println(Arrays.toString(buildingWithOceanView.findBuildings(new int[]{4, 3, 2, 1})));
-        System.out.println(Arrays.toString(buildingWithOceanView.findBuildings(new int[]{1, 3, 2, 4})));
+        System.out.println(Arrays.toString(buildingWithOceanView.findBuildings(new int[] { 4, 2, 3, 1 })));
+        System.out.println(Arrays.toString(buildingWithOceanView.findBuildings(new int[] { 4, 3, 2, 1 })));
+        System.out.println(Arrays.toString(buildingWithOceanView.findBuildings(new int[] { 1, 3, 2, 4 })));
     }
 }
