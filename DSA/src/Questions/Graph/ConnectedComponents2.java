@@ -31,6 +31,15 @@ import java.util.List;
     0 <= ai <= bi < n
     ai != bi
     There are no repeated edges.
+    Union-Find Approach:
+
+Time Complexity: O(n + m log n) where n is the number of nodes and m is the number of edges. This is because each union and find operation is nearly constant time due to path compression.
+Space Complexity: O(n) for storing the parent array.
+DFS Approach:
+
+Time Complexity: O(n + m) where n is the number of nodes and m is the number of edges. This is because each node and edge is processed once.
+Space Complexity: O(n + m) for storing the adjacency list and the recursion stack in the worst case.
+
  */
 public class ConnectedComponents2 {
     public int countComponentsUF(int n, int[][] edges) {

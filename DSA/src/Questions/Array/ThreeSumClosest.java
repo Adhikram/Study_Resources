@@ -1,6 +1,7 @@
 package Questions.Array;
 
 import java.util.Arrays;
+
 /*
  https://leetcode.com/problems/3sum-closest/
  Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target.
@@ -28,11 +29,13 @@ Constraints:
 3 <= nums.length <= 500
 -1000 <= nums[i] <= 1000
 -104 <= target <= 104
+Time Complexity: O(n^2) because we iterate through the array and use two pointers for each element.
+Space Complexity: O(1) because we use a constant amount of extra space.
  */
 public class ThreeSumClosest {
-public int threeSumClosest(int[] nums, int target) {
+    public int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
-        int closestSum = nums[0] + nums[1] + nums[2]; 
+        int closestSum = nums[0] + nums[1] + nums[2];
 
         for (int i = 0; i < nums.length - 2; i++) {
             int start = i + 1;
@@ -42,11 +45,11 @@ public int threeSumClosest(int[] nums, int target) {
                 int sum = nums[i] + nums[start] + nums[end];
 
                 if (Math.abs(target - sum) < Math.abs(target - closestSum)) {
-                    closestSum = sum; 
+                    closestSum = sum;
                 }
 
                 if (sum < target) {
-                    start++; 
+                    start++;
                 } else {
                     end--; // Decrement k to decrease the sum
                 }
@@ -58,7 +61,7 @@ public int threeSumClosest(int[] nums, int target) {
 
     public static void main(String[] args) {
         ThreeSumClosest threeSumClosest = new ThreeSumClosest();
-        int[] nums = {1, 2, 4, 8, 16, 32, 64, 128};
+        int[] nums = { 1, 2, 4, 8, 16, 32, 64, 128 };
         int target = 82;
         System.out.println(threeSumClosest.threeSumClosest(nums, target));
     }

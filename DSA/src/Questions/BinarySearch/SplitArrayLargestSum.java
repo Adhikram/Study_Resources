@@ -1,7 +1,12 @@
 package Questions.BinarySearch;
 
 import java.util.Arrays;
+/*
+ https://leetcode.com/problems/split-array-largest-sum/description/
+ Time Complexity: O(N * log(sum(nums))) where N is the length of the nums array. This is because we perform binary search on the range [max(nums), sum(nums)] and for each mid-point, we check the feasibility in O(N).
+Space Complexity: O(1) as we use a constant amount of extra space.
 
+ */
 public class SplitArrayLargestSum {
 
     // Method to count the number of students needed to read the given number of

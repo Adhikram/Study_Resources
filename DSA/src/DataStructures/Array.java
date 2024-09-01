@@ -77,6 +77,7 @@ public class Array {
     Convert a List<int[]> to int[][]
     List<int[]> result = new ArrayList<>();
     int[][] res = result.toArray(new int[result.size()][]);
+    result.stream().mapToInt(Integer::intValue).toArray()
     */
   }
 }

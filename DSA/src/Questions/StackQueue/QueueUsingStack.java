@@ -2,6 +2,15 @@ package Questions.StackQueue;
 
 import java.util.Stack;
 
+/*
+https://leetcode.com/problems/implement-queue-using-stacks/description/
+ Time Complexity:
+Push: O(n) where n is the number of elements in the queue. This is because we move elements between the two stacks.
+Pop: O(1) for removing the top element from s1.
+Peek: O(1) for getting the top element from s1.
+Empty: O(1) for checking if s1 is empty.
+Space Complexity: O(n) for storing the elements in the two stacks.
+ */
 public class QueueUsingStack {
     private final Stack<Integer> s1 = new Stack<>();
     private final Stack<Integer> s2 = new Stack<>();

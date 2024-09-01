@@ -42,6 +42,8 @@ n == grid[i].length
 1 <= m, n <= 15
 0 <= grid[i][j] <= 100
 There are at most 25 cells containing gold.
+Time Complexity: O(4^(m*n)) because each cell can lead to four possible directions and we explore all possible paths.
+Space Complexity: O(m*n) for the recursion stack.
  */
 public class PathWithMaximumGold {
     private int[] dx = { 0, 0, 1, -1 }; // directions for row movement

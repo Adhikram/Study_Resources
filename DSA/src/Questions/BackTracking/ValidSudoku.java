@@ -1,5 +1,10 @@
 package Questions.BackTracking;
 
+/*
+ https://leetcode.com/problems/valid-sudoku/description/
+ Time Complexity: O(9^(n*n)) where n is the size of the board (9 in this case). This is because each cell can have 9 possible values.
+Space Complexity: O(n*n) for the recursion stack and the board itself.
+ */
 public class ValidSudoku {
     private boolean isValidPlacement(char[][] board, int row, int col, char num) {
         // Check if num is already in the same row, column or 3x3 sub-grid

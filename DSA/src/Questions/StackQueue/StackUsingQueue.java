@@ -3,6 +3,16 @@ package Questions.StackQueue;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+ https://leetcode.com/problems/implement-stack-using-queues/description/
+ Time Complexity:
+Push: O(1) for adding an element to the stack.
+Pop: O(1) for removing the top element from the stack.
+Top: O(1) for getting the top element from the stack.
+IsEmpty: O(1) for checking if the stack is empty.
+IsFull: O(1) for checking if the stack is full.
+Space Complexity: O(n) for storing the elements in the array, where n is the capacity of the stack.
+ */
 public class StackUsingQueue {
     Queue<Integer> q1 = new LinkedList<>();
     Queue<Integer> q2 = new LinkedList<>();
