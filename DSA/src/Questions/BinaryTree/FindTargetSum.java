@@ -1,8 +1,6 @@
-package Questions.BST;
+package Questions.BinaryTree;
 
 import java.util.HashMap;
-
-import Questions.BinaryTree.TreeNode;
 
 public class FindTargetSum {
     public boolean inOrder(TreeNode root, HashMap<Integer, Boolean> hash, int k) {

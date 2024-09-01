@@ -1,5 +1,9 @@
 package Questions.LinkedList;
-
+/*
+ https://leetcode.com/problems/middle-of-the-linked-list/description/
+ Time Complexity: O(n) where n is the number of nodes in the list. This is because we traverse the list once.
+Space Complexity: O(1) for using a constant amount of extra space.
+ */
 public class FindMiddleElement {
     public class ListNode {
         int val;

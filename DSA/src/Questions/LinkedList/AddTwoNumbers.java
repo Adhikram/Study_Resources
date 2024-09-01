@@ -1,5 +1,9 @@
 package Questions.LinkedList;
-
+/*
+https://leetcode.com/problems/add-two-numbers/
+ Time Complexity: O(max(m, n)) where m and n are the lengths of the two linked lists. This is because we traverse both lists once.
+Space Complexity: O(max(m, n)) for storing the result linked list.
+ */
 public class AddTwoNumbers {
     public class ListNode {
         int val;

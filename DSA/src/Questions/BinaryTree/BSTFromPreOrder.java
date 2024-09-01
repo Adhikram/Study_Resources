@@ -1,6 +1,4 @@
-package Questions.BST;
-
-import Questions.BinaryTree.TreeNode;
+package Questions.BinaryTree;
 
 public class BSTFromPreOrder {
     public TreeNode helper(int[] preOrder, int start, int end) {

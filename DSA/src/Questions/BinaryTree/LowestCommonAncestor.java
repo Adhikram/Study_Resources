@@ -1,6 +1,4 @@
-package Questions.BST;
-
-import Questions.BinaryTree.TreeNode;
+package Questions.BinaryTree;
 
 public class LowestCommonAncestor {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
