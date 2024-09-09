@@ -35,6 +35,15 @@ Explanation: The invitations are sent as follows:
 -The 4th boy invites the 2nd girl.
 Time Complexity: O(n*m)
 Space Complexity: O(n)
+
+DFS for Augmenting Paths:
+Use DFS to find augmenting paths. If a girl is not matched or the previous boy matched to her can be matched to another girl, update the match.
+
+Match Array:
+match[girl] stores the index of the boy matched to the girl. Initialize it with -1 indicating no matches.
+
+Visited Array:
+vis[girl] is used to mark girls as visited during the DFS to avoid cycles.
  */
 public class MaximumNumberOfInvitation {
     public int maximumInvitations(int[][] grid) {

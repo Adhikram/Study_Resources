@@ -1,7 +1,9 @@
 package Questions.Array;
 
 import java.util.HashMap;
-
+/*
+ https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/
+ */
 public class MaximumSubArrayWithSumK {
     public static int getLongestSubArray(int[] nums, int k) {
         HashMap<Integer, Integer> hash = new HashMap<>();

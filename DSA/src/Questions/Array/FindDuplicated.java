@@ -31,6 +31,14 @@ nums.length == n + 1
 1 <= nums[i] <= n
 All the integers in nums appear only once except for precisely one integer which appears two or more times.
  
+Use Floyd's Tortoise and Hare (Cycle Detection) algorithm to find the duplicate number.
+
+Initialize two pointers, slowPointer and fastPointer, both starting at the first element of the array.
+Move slowPointer one step at a time and fastPointer two steps at a time until they meet. This indicates the presence of a cycle.
+
+Find Entry Point of Cycle:
+Reset slowPointer to the start of the array.
+Move both slowPointer and fastPointer one step at a time until they meet again. The meeting point is the duplicate number.
  */
 public class FindDuplicated {
     public static int findDuplicate(int[] nums) {

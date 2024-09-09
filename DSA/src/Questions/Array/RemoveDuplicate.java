@@ -1,7 +1,9 @@
 package Questions.Array;
 
 import java.util.Arrays;
-
+/*
+ https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+ */
 public class RemoveDuplicate {
 
     public static int removeDuplicates(int[] nums) {

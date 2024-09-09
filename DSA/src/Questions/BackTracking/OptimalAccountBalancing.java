@@ -42,6 +42,24 @@ fromi != toi
 1 <= amounti <= 100
 Time Complexity: O(2^n * N)
 Space Complexity: O(2^n)
+
+Debt Calculation:
+Use a map balanceMap to calculate the net balance for each person.
+Iterate through the transactions and update the balance for each person.
+
+Backtracking Approach:
+Use a recursive function settle to explore all possible ways to settle the debts.
+For each person with a non-zero balance, try to settle their debt with another person who has an opposite balance.
+Use backtracking to find the minimum number of transactions required.
+
+Base Case for Recursion:
+if (start == debt.size()): If all debts have been processed, return 0.
+if (currentDebt == 0): If the current debt is zero, move to the next debt.
+
+Recursive Calls:
+Settle Debt: Try to settle the current debt with another person who has an opposite balance.
+Backtrack: Restore the debt list after exploring the current option.
+Minimize Transactions: Keep track of the minimum number of transactions required to settle all debts.
  */
 public class OptimalAccountBalancing {
     public int minTransfers(int[][] transactions) {

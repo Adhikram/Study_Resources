@@ -1,5 +1,7 @@
 package Questions.Array;
-
+/*
+ https://leetcode.com/problems/trapping-rain-water/description/
+ */
 public class TrapRainWater {
     public int trap(int[] height) {
         int lMax = Integer.MIN_VALUE;
@@ -12,7 +14,14 @@ public class TrapRainWater {
             rMax = Math.max(rMax, height[right]);
             // If the current Tower is the max we will not get water from here
             // we need the water margin from the smaller tower to the present tower
-            result += (lMax < rMax) ? lMax - height[left++] : rMax - height[right--];
+            if(lMax < rMax) {
+                result += lMax - height[left];
+                left++;
+            } else {
+                result += rMax - height[right];
+                right--;
+            }
+            // result += (lMax < rMax) ? lMax - height[left++] : rMax - height[right--];
         }
         return result;
     }

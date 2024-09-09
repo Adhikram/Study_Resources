@@ -55,6 +55,6 @@ public class myPOW {
     }
 
     public static void main(String[] args) {
-        System.out.println(myPow(2.00000, -1));
+        System.out.println(myPow(2.00000, -2));
     }
 }

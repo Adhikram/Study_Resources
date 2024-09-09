@@ -38,13 +38,13 @@ public class RussianDollEnvelop {
         while (lo <= hi) {
             int mid = (lo + hi) >> 1;
             if (dp[mid] < val) {
-                res = mid;
+                // res = mid;
                 lo = mid + 1;
             } else {
                 hi = mid - 1;
             }
         }
-        return res + 1;
+        return lo;
     }
 
     public int maxEnvelopes(int[][] envelopes) {
@@ -54,6 +54,11 @@ public class RussianDollEnvelop {
         LIS[0] = Integer.MIN_VALUE;
         int ans = 0;
         for (int i = 0; i < envelopes.length; i++) {
+            System.out.println();
+            for (int j = 0; j < LIS.length; j++) {
+                System.out.print(LIS[j] + " ");
+            }
+            System.out.println();
             int val = envelopes[i][1];
             int insertIndex = binarySearch(LIS, val);
             System.out.println("VAL: " + val);
@@ -62,12 +67,12 @@ public class RussianDollEnvelop {
             if (LIS[insertIndex] >= val) {
                 LIS[insertIndex] = val;
             }
-            System.out.println();
-            for (int j = 0; j < LIS.length; j++) {
-                System.out.print(LIS[j] + " ");
-            }
-            System.out.println();
         }
+        System.out.println();
+        for (int j = 0; j < LIS.length; j++) {
+            System.out.print(LIS[j] + " ");
+        }
+        System.out.println();
         return ans;
     }
     public static void main(String[] args) {

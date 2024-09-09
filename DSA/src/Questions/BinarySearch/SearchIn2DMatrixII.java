@@ -31,6 +31,12 @@ All the integers in each column are sorted in ascending order.
 -109 <= target <= 109
 Time Complexity: O(m + n)
 Space Complexity: O(1)
+Search from Top-Right Corner:
+    Start from the top-right corner of the matrix.
+        If the current element is equal to the target, return true.
+        If the current element is greater than the target, move left.
+        If the current element is less than the target, move down.
+    Continue this process until the target is found or the search space is exhausted.
  */
 public class SearchIn2DMatrixII {
     public boolean searchMatrix(int[][] matrix, int target) {

@@ -30,6 +30,31 @@ All the rows and columns of matrix are guaranteed to be sorted in non-decreasing
 1 <= k <= n2
  Time Complexity: O(n * log(max - min))
     Space Complexity: O(1)
+
+
+    low = matrix[0][0]
+    high = matrix[n - 1][n - 1]
+    while low < high:
+        mid = (low + high) // 2
+        count = countLessEqual(matrix, mid, n)
+        if count < k:
+            low = mid + 1
+        else:
+            high = mid
+    return low
+
+    countLessEqual(matrix, target, n):
+        count = 0
+        row = n - 1
+        col = 0
+        while row >= 0 and col < n:
+            if matrix[row][col] <= target:
+                count += row + 1
+                col += 1
+            else:
+                row -= 1
+        return count
+
  */
 public class KthSmallestElementInMatrix {
     public int kthSmallest(int[][] matrix, int k) {

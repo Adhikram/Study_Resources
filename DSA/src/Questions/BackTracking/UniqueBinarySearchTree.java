@@ -24,6 +24,22 @@ Constraints:
 1 <= n <= 8
 Time Complexity: O(4^n)
 Space Complexity: O(4^n)
+
+Recursive Approach:
+Use a recursive function generateSubtrees to generate all possible subtrees for a given range of values [s, e].
+For each value i in the range, consider it as the root and recursively generate all possible left subtrees from [s, i-1] 
+and right subtrees from [i+1, e].
+Combine each left subtree with each right subtree to form the full tree with i as the root.
+
+Base Case for Recursion:
+If s > e, return a list containing null to represent an empty tree.
+
+Combining Subtrees:
+For each value i in the range, generate all possible left and right subtrees.
+Combine each left subtree with each right subtree to form the full tree and add it to the result list.
+
+Handling Edge Cases:
+If n is 0, return an empty list as there are no trees to generate.
  */
 public class UniqueBinarySearchTree {
     public class TreeNode {
@@ -62,9 +78,7 @@ public class UniqueBinarySearchTree {
 
             for (TreeNode left : leftSubtrees) {
                 for (TreeNode right : rightSubtrees) {
-                    TreeNode root = new TreeNode(i);
-                    root.left = left;
-                    root.right = right;
+                    TreeNode root = new TreeNode(i, left, right);
                     res.add(root);
                 }
             }

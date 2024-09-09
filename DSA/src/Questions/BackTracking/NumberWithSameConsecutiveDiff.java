@@ -27,6 +27,17 @@ Constraints:
 0 <= k <= 9
 Time Complexity: O(2^n)
 Space Complexity: O(2^n)
+Recursive Function:
+backtrack(int val, int length, int k, ArrayList<Integer> result):
+ This function builds the number val of the desired length by appending digits that maintain the difference k.
+Base Case:
+ If length is 0, add the number to the result list.
+Recursive Case:
+ Append the next digit that maintains the difference k with the current last digit.
+Handling Leading Zeros:
+ Start the backtracking process with digits from 1 to 9 to avoid leading zeros.
+Generating Results:
+ Convert the result list to an array of integers before returning.
  */
 public class NumberWithSameConsecutiveDiff {
     public void backtrack(int val, int length, int k, ArrayList<Integer> result) {

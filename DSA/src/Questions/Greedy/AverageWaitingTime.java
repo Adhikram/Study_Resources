@@ -1,6 +1,7 @@
 package Questions.Greedy;
 
 /*
+https://leetcode.com/problems/average-waiting-time/description/
  There is a restaurant with a single chef. You are given an array customers, where customers[i] = [arrival i, time i]:
 
 arrival i is the arrival time of the ith customer. The arrival times are sorted in non-decreasing order.

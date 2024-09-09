@@ -28,6 +28,21 @@ Constraints:
 
 1 <= k <= nums.length <= 105
 -104 <= nums[i] <= 104
+Quickselect:
+Time Complexity: O(n) on average.
+Space Complexity: O(1) for the in-place partitioning.
+Min-Heap:
+Time Complexity: O(n log k) due to heap operations.
+Space Complexity: O(k) for storing the heap.
+
+The performance of QuickSelect can be inconsistent due to its worst-case time complexity of (O(n^2)),
+ which occurs when the pivot selection is poor (e.g., always picking the smallest or largest element). 
+ Even with randomized pivot selection, there can still be cases where the performance degrades, especially with certain input distributions.
+
+On the other hand, the PriorityQueue (min-heap) approach has a more predictable performance with a time complexity of (O(n \log k)). 
+This is because it maintains a heap of size (k) and performs insertion and deletion operations in (O(\log k)) time.
+This approach is generally more stable and less sensitive to input variations.
+
  */
 public class kthLargestElement {
     private Random rand = new Random();

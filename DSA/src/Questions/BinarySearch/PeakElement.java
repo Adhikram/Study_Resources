@@ -2,7 +2,20 @@ package Questions.BinarySearch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+/*
+ https://leetcode.com/problems/find-peak-element/description/
 
+If arr[mid] is greater than both its neighbors (or if it is at the boundary and greater than its single neighbor),
+ it is a peak element. 
+ if ((mid == 0 || arr.get(mid - 1) < arr.get(mid)) && (mid == n - 1 || arr.get(mid) > arr.get(mid + 1))) {
+                return mid;
+            }
+
+If arr[mid] is less than its left neighbor, move the search range to the left half.
+
+If arr[mid] is less than its right neighbor, move the search range to the right half.
+
+ */
 public class PeakElement {
 
     public static int findPeakElement(ArrayList<Integer> arr) {

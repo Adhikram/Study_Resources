@@ -34,6 +34,17 @@ Constraints:
 1 <= n, m <= 13
 Time Complexity: O(N^2)
 Space Complexity: O(N^2)
+
+Backtracking Approach:
+
+Use a recursive function to explore all possible ways to tile the rectangle with squares.
+For each uncovered cell, try placing the largest possible square and recursively tile the remaining uncovered area.
+Use backtracking to restore the state after exploring each possibility.
+
+Dynamic Programming Approach:
+
+Use a 2D array dp where dp[i][j] represents the minimum number of squares needed to tile a rectangle of size i x j.
+For each rectangle, try all possible splits and find the minimum number of squares needed.
  */
 public class TilingRectangles {
     int ret; // store the final result

@@ -1,4 +1,4 @@
-package Questions.Array;
+package Questions.Greedy;
 
 /*
 https://leetcode.com/problems/candy/description/

@@ -1,5 +1,27 @@
 package Questions.BinarySearch;
+/*
+ https://leetcode.com/problems/search-in-rotated-sorted-array/
 
+start = 0, end = n - 1
+    mid = (start + end) / 2
+    if nums[mid] == target, return mid
+    We need to find the sorted half because BS can only runs on the Sorted part
+    if nums[mid] >= nums[start]:
+        // Left part is sorted
+        if nums[start] <= target && target < nums[mid]:
+            // If target lies between the sorted range
+            end = mid - 1
+        else:
+            start = mid + 1
+    else:
+        // Right part is sorted
+        if nums[mid] < target && target <= nums[end]:
+            // If target lies between the sorted range
+            start = mid + 1
+        else:
+            end = mid - 1
+
+ */
 public class SearchInRotatedSortedArray {
     public int search(int[] nums, int target) {
         int start = 0;

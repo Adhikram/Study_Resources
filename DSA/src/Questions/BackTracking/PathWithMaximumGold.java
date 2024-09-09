@@ -44,6 +44,18 @@ n == grid[i].length
 There are at most 25 cells containing gold.
 Time Complexity: O(4^(m*n)) because each cell can lead to four possible directions and we explore all possible paths.
 Space Complexity: O(m*n) for the recursion stack.
+
+
+collectGold(int[][] grid, int x, int y, int m, int n):
+This function collects the gold at the current cell and recursively explores all four possible directions.
+
+Base Case: If the current cell is out of bounds or contains 0 gold, return 0.
+
+Recursive Case: Collect the gold at the current cell, mark it as visited by setting it to 0, and recursively explore all four directions.
+
+Backtracking: After exploring all paths from the current cell, restore the cell's value to its original gold amount.
+
+Maximize the Result: Keep track of the maximum gold collected from all possible starting cells.
  */
 public class PathWithMaximumGold {
     private int[] dx = { 0, 0, 1, -1 }; // directions for row movement

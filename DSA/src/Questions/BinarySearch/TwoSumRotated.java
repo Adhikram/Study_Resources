@@ -1,7 +1,25 @@
 package Questions.BinarySearch;
 
 import java.util.Arrays;
+/*
+ https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 
+Finding the Smallest Element:
+    left = 0, right = n - 1
+    mid = (left + right) >> 1
+    if nums[mid] > nums[right], left = mid + 1
+    else right = mid
+
+    return left
+
+Two-Pointer Technique:
+    Initialize i = pivot and j = (pivot - 1) % n.
+
+    if nums[i] + nums[j] == target, return [nums[i], nums[j]].
+    if nums[i] + nums[j] > target, decrement j.
+    if nums[i] + nums[j] < target, increment i.
+
+ */
 public class TwoSumRotated {
     public static int[] twoSum(int[] nums, int target) {
         int pivot = findPivot(nums);

@@ -36,6 +36,21 @@ num consists only of digits.
 Follow up: How would you handle overflow for very large input integers?
 Time Complexity: O(n^3)
 Space Complexity: O(1)
+
+
+Base Case for Recursion
+if (cur >= num.length()): If the current index is beyond the length of the string, check if at least three numbers have been used.
+If so, return true. This ensures that the sequence has at least three numbers.
+
+if (num.charAt(cur) == '0' && number1 + number2 != 0):
+If the current character is '0' and the sum of the last two numbers is not zero, return false to avoid invalid sequences with leading zeros.
+
+Loop for Generating Numbers
+The loop inside the solve function generates the next number in the sequence by iterating through the remaining part of the string.
+for (int i = cur; i < num.length(); i++):
+number = number * 10 + num.charAt(i) - '0': Construct the next number by appending the current digit.
+if (number == target && solve(number2, target, i + 1, num, count + 1)): If the constructed number matches the target (sum of the previous two numbers), recursively check the next part of the string.
+else if (number > target): If the constructed number exceeds the target, break the loop as further digits will only increase the number.
  */
 public class AdditiveNumbers {
     public boolean isAdditiveNumber(String num) {

@@ -39,7 +39,29 @@ Constraints:
 s and wordDict[i] consist of only lowercase English letters.
 All the strings of wordDict are unique.
 Input is generated in a way that the length of the answer doesn't exceed 105.
+Backtracking Approach:
+Use a recursive function to explore all possible ways to segment the string s.
+For each substring, check if it is a valid word in the dictionary.
+If valid, recursively segment the remaining part of the string.
+Use backtracking to restore the state after exploring each possibility.
 
+Dynamic Programming Approach:
+Use a DP table to store all possible sentences that can be formed up to each index.
+For each index, check all possible substrings ending at that index.
+If a substring is a valid word, combine it with the sentences formed up to the start of the substring.
+
+Memoization Approach:
+Use a memoization map to store the results of subproblems.
+For each substring, check if it is a valid word in the dictionary.
+If valid, recursively segment the remaining part of the string and store the result in the memoization map.
+
+
+
+Method                       Time Complexity        Space Complexity
+wordBreakBackTrack              O(2^n)                     O(2^n)
+wordBreakDP                     O(n^3)                     O(n * 2^n)
+wordBreak                       O(n^2 * k)                 O(n * 2^n) 
+where n is the length of the string s and k is the average length of the words in the dictionary.
  */
 public class WordBreakII {
     List<String> results;

@@ -6,6 +6,26 @@ import java.util.Arrays;
  Time Complexity: O(N * log(sum(nums))) where N is the length of the nums array. This is because we perform binary search on the range [max(nums), sum(nums)] and for each mid-point, we check the feasibility in O(N).
 Space Complexity: O(1) as we use a constant amount of extra space.
 
+Binary Search:
+    low = max(nums), high = sum(nums)
+    while low <= high:
+        mid = (low + high) / 2
+        if countStudents(nums, mid) <= m:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return low
+    countStudents:
+        students = 1
+        sumPages = 0
+        for num in nums:
+            if sumPages + num <= pages:
+                sumPages += num
+            else:
+                students += 1
+                sumPages = num
+        return students
+
  */
 public class SplitArrayLargestSum {
 
