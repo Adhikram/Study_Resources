@@ -11,7 +11,34 @@ with recursive cte as (
 )
 select *
 from cte;
+WITH RECURSIVE ManagerHierarchy AS (
+  SELECT 
+    EmployeeID,
+    ManagerID,
+    1 AS Level
+  FROM 
+    Employees
+  WHERE 
+    EmployeeID = <employee_id>
+  UNION ALL
 
+  SELECT
+    e.EmployeeID,
+    e.ManagerID,
+    h.Level + 1
+  FROM
+    Employees e
+  INNER JOIN
+    ManagerHierarchy h ON e.ManagerID = h.EmployeeID
+)
+SELECT
+  EmployeeID,
+  ManagerID,
+  Level
+FROM
+  ManagerHierarchy
+ORDER BY
+  Level DESC;
 -- Input:
 -- emp_details
 -- +----+--------+------------+
