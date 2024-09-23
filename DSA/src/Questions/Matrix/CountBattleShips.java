@@ -1,6 +1,6 @@
 package Questions.Matrix;
 
-import Interview.Solution;
+import Questions.String.decodeString;
 
 /*
 https://leetcode.com/problems/battleships-in-a-board/description/
