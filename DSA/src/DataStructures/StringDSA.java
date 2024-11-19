@@ -33,7 +33,7 @@ public class StringDSA {
     }
 
     // Method to reverse a string
-    public StringDSA reverseString(String s) {
+    public String reverseString(String s) {
         char[] charArray = s.toCharArray();
         int left = 0, right = charArray.length - 1;
         while (left < right) {
