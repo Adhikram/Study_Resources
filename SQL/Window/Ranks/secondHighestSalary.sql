@@ -12,7 +12,7 @@ WITH ranked_salaries AS (
         count(*) OVER (PARTITION BY department) AS total_employees
     FROM employees
 )
-SELECT 
+SELECT   
     department,
     employee_name,
     salary
