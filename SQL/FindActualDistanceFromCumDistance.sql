@@ -1,7 +1,0 @@
--- Solution:
-select *,
-    cumulative_distance - lag(cumulative_distance, 1, 0) over(
-        partition by cars
-        order by days
-    ) as distance_travelled
-from car_travels;
