@@ -48,6 +48,17 @@ SELECT DISTINCT
     distance
 FROM src_dest_distance;
 
+
+WITH RECURSIVE generate_series AS (
+    SELECT 0 AS number
+    UNION ALL
+    SELECT number + 1
+    FROM generate_series
+    WHERE number < 10
+)
+SELECT number FROM generate_series;
+
+
 -- Expected Output:
 -- source    destination    distance
 -- A         B             100

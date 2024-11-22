@@ -1,21 +1,21 @@
 /*
 Problem: Identify Products with Extreme Sales Performance
 - Find highest and lowest selling product categories
-- Calculate total sales for previous year
-- Return both extremes in single result set
+- Calculate total sales for the previous year
+- Return both extremes in a single result set
 */
 
 -- Input Table Structure:
 -- SalesData
 -- ProductCategory   VARCHAR
--- SalesAmount      DECIMAL
--- SaleDate         DATE
+-- SalesAmount       DECIMAL
+-- SaleDate          DATE
 
 -- Sample Input:
 -- ProductCategory    SalesAmount    SaleDate
 -- Electronics       1500.00        2023-01-15
 -- Clothing          800.00         2023-02-01
--- Books            200.00         2023-03-10
+-- Books             200.00         2023-03-10
 
 -- Calculate Previous Year Sales
 WITH PreviousYearSales AS (
@@ -25,8 +25,8 @@ WITH PreviousYearSales AS (
     FROM 
         SalesData
     WHERE 
-        SaleDate >= DATEADD(year, -1, GETDATE())
-        AND SaleDate < GETDATE()
+        SaleDate >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+        AND SaleDate < CURDATE()
     GROUP BY 
         ProductCategory
 ),
@@ -55,11 +55,11 @@ WHERE
 -- Expected Output:
 -- ProductCategory    TotalSales
 -- Electronics       150000.00
--- Books            20000.00
+-- Books             20000.00
 
 /* Performance Optimizations:
-1. Efficient date filtering
-2. Single scan for both rankings
+1. Efficient date filtering using DATE_SUB
+2. Single scan for both rankings using window functions
 3. Consider index on (SaleDate, ProductCategory)
 4. Smart use of window functions
 5. Optimal CTE structure

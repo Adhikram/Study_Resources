@@ -36,7 +36,8 @@ WITH june_customers AS (
         signup_timestamp,
         signup_timestamp + INTERVAL '14 days' AS first_14_days
     FROM customers
-    WHERE DATE_TRUNC('month', signup_timestamp) = '2022-06-01'
+    WHERE EXTRACT(MONTH FROM signup_timestamp) = 6 
+    AND EXTRACT(YEAR FROM signup_timestamp) = 2022
 ),
 
 -- Calculate bad experiences
