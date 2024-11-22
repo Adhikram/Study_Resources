@@ -2,16 +2,21 @@
 # Question: Kth Largest Element in an Array
 # Link: https://leetcode.com/problems/kth-largest-element-in-an-array/
 
-# Given an integer array nums and an integer k, return the kth largest element.
-# Note: It is the kth largest element in sorted order, not the kth distinct element.
+# Problem Statement:
+# Given an integer array nums and an integer k, return the kth largest element in the array.
+# Note that it is the kth largest element in sorted order, not the kth distinct element.
 
-# Two Solution Approaches:
+# Example:
+# Input: nums = [3,2,1,5,6,4], k = 2
+# Output: 5
+
+# Solution Approaches:
 # 1. QuickSelect:
-#    Time Complexity: O(n) average case
-#    Space Complexity: O(1) for in-place partitioning
+#    - Time Complexity: O(n) average case
+#    - Space Complexity: O(1) for in-place partitioning
 # 2. Min-Heap:
-#    Time Complexity: O(n log k)
-#    Space Complexity: O(k)
+#    - Time Complexity: O(n log k)
+#    - Space Complexity: O(k)
 
 # Key Components:
 # - quick_select(): Implements QuickSelect algorithm with random pivot
@@ -25,37 +30,31 @@ import heapq
 
 
 class KthLargestElement:
-    def quick_select(self, nums: List[int], k: int, left: int, right: int) -> int:
-        if left == right:
-            return nums[left]
+    def quick_select(self, nums: List[int], k: int) -> int:
+        """
+        QuickSelect algorithm to find the kth largest element.
+        """
+        pivot = random.choice(nums)
+        left, right, mid = [], [], []
+        for num in nums:
+            if num > pivot:
+                left.append(num)
+            elif num < pivot:
+                right.append(num)
+            else:
+                mid.append(num)
 
-        pivot_index = left + random.randint(0, right - left)
-        pivot_index = self.partition(nums, left, right, pivot_index)
-
-        if k == pivot_index:
-            return nums[k]
-        elif k < pivot_index:
-            return self.quick_select(nums, k, left, pivot_index - 1)
+        if len(left) >= k:
+            return self.quick_select(left, k)
+        elif k > len(left) + len(mid):
+            return self.quick_select(right, k - len(left) - len(mid))
         else:
-            return self.quick_select(nums, k, pivot_index + 1, right)
-
-    def partition(
-        self, nums: List[int], left: int, right: int, pivot_index: int
-    ) -> int:
-        pivot = nums[pivot_index]
-        nums[pivot_index], nums[right] = nums[right], nums[pivot_index]
-        store_index = left
-
-        for i in range(left, right):
-            if nums[i] < pivot:
-                nums[store_index], nums[i] = nums[i], nums[store_index]
-                store_index += 1
-
-        nums[right], nums[store_index] = nums[store_index], nums[right]
-        return store_index
+            return pivot
 
     def find_kth_largest(self, nums: List[int], k: int) -> int:
-        # Min-heap approach
+        """
+        Min-heap approach to find the kth largest element.
+        """
         heap = []
         for num in nums:
             heapq.heappush(heap, num)
@@ -72,9 +71,7 @@ def main():
 
     # Test both approaches
     heap_result = solution.find_kth_largest(nums, k)
-    quick_select_result = solution.quick_select(
-        nums.copy(), len(nums) - k, 0, len(nums) - 1
-    )
+    quick_select_result = solution.quick_select(nums.copy(), k)
 
     print(f"Heap approach result: {heap_result}")
     print(f"QuickSelect approach result: {quick_select_result}")

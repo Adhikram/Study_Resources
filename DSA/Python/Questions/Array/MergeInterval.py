@@ -26,21 +26,15 @@ from typing import List
 class MergeInterval:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         # Sort intervals based on start time
-        intervals.sort(key=lambda x: x[0])
-        result = []
-
+        intervals.sort(key=lambda l: l[0])
+        merged = []
         for interval in intervals:
-            if not result:
-                result.append(interval)
+            if not merged or interval[0] > merged[-1][1]:
+                merged.append(interval)
             else:
-                last_interval = result[-1]
+                merged[-1][1] = max(merged[-1][1], interval[1])
 
-                if last_interval[1] >= interval[0]:
-                    last_interval[1] = max(last_interval[1], interval[1])
-                else:
-                    result.append(interval)
-
-        return result
+        return merged
 
 
 def main():

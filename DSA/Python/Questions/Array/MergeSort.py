@@ -24,9 +24,9 @@ class MergeSort:
         # Find sizes of two subarrays
         n1, n2 = m - l + 1, r - m
 
-        # Create temporary arrays
-        left = [arr[l + i] for i in range(n1)]
-        right = [arr[m + 1 + i] for i in range(n2)]
+        # Create temporary arrays using slicing
+        left = arr[l:m + 1]
+        right = arr[m + 1:r + 1]
 
         # Merge temporary arrays back into arr[l..r]
         i = j = 0

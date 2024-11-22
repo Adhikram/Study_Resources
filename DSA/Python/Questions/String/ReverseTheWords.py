@@ -2,72 +2,107 @@
 # Question: Reverse Words in a String
 # Link: https://leetcode.com/problems/reverse-words-in-a-string/
 
-# Time Complexity: O(n)
-# Space Complexity: O(n)
+# Problem Statement:
+# Given an input string s, reverse the order of the words.
+# A word is defined as a sequence of non-space characters.
+# The words in s will be separated by at least one space.
+# Return a string of the words in reverse order concatenated by a single space.
 
-# Algorithm:
-# 1. Process string from right to left
-# 2. Skip trailing spaces
-# 3. Extract and reverse words
-# 4. Handle multiple spaces
+# Example 1:
+# Input: s = "the sky is blue"
+# Output: "blue is sky the"
 
-# Key Components:
-# - reverse_words(): Main implementation
-# - reverse_words_optimized(): In-place version
-# - reverse(): Helper for character reversal
+# Example 2:
+# Input: s = "  hello world  "
+# Output: "world hello"
+
+# Constraints:
+# - 1 <= s.length <= 10^4
+# - s contains English letters (upper-case and lower-case), digits, and spaces ' '.
+# - There is at least one word in s.
 """
 
 
 class ReverseTheWords:
-    def reverse_words(self, s: str) -> str:
-        result = []
-        end = len(s) - 1
+    def reverse_words_builtin(self, s: str) -> str:
+        """
+        Reverse the words using built-in functions.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        # Split the string by spaces and filter out empty strings
+        words = s.split()
+        # Reverse the list of words
+        reversed_words = words[::-1]
+        # Join the reversed list into a single string with spaces
+        return " ".join(reversed_words)
 
-        while end >= 0:
-            # Skip trailing spaces
-            while end >= 0 and s[end] == " ":
-                end -= 1
-            if end < 0:
-                break
+    def reverse_words_manual(self, s: str) -> str:
+        """
+        Reverse the words manually without using built-in reverse.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        words = []
+        length = len(s)
+        i = 0
 
-            # Find word boundaries
-            start = end
-            while start >= 0 and s[start] != " ":
-                start -= 1
+        while i < length:
+            if s[i] != " ":
+                start = i
+                while i < length and s[i] != " ":
+                    i += 1
+                words.append(s[start:i])
+            i += 1
 
-            # Add word to result
-            if result:
-                result.append(" ")
-            result.append(s[start + 1 : end + 1])
-
-            end = start - 1
-
-        return "".join(result)
-
-    def reverse_words_optimized(self, s: list[str]) -> None:
-        # Reverse entire string
-        self.reverse(s, 0, len(s) - 1)
-
-        # Reverse each word
-        start = 0
-        for end in range(len(s)):
-            if s[end] == " ":
-                self.reverse(s, start, end - 1)
-                start = end + 1
-        # Reverse last word
-        self.reverse(s, start, len(s) - 1)
-
-    def reverse(self, s: list[str], left: int, right: int) -> None:
+        # Manually reverse the words list
+        left, right = 0, len(words) - 1
         while left < right:
-            s[left], s[right] = s[right], s[left]
+            words[left], words[right] = words[right], words[left]
             left += 1
             right -= 1
 
+        return " ".join(words)
+
+    def reverse_words_two_pointer(self, s: str) -> str:
+        """
+        Reverse the words using two-pointer technique.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        words = s.split()
+        left, right = 0, len(words) - 1
+
+        while left < right:
+            words[left], words[right] = words[right], words[left]
+            left += 1
+            right -= 1
+
+        return " ".join(words)
+
 
 def main():
+    test_cases = [
+        {"input": "the sky is blue", "expected": "blue is sky the"},
+        {"input": "  hello world  ", "expected": "world hello"},
+        {"input": "a good   example", "expected": "example good a"},
+        {"input": "  Bob    Loves  Alice   ", "expected": "Alice Loves Bob"},
+    ]
+
     solution = ReverseTheWords()
-    print(solution.reverse_words("the sky is blue"))  # Expected: "blue is sky the"
-    print(solution.reverse_words("  hello world  "))  # Expected: "world hello"
+    for i, test in enumerate(test_cases):
+        print(f"\nTest Case {i + 1}:")
+        print(f"Input: '{test['input']}'")
+        result_builtin = solution.reverse_words_builtin(test["input"])
+        result_manual = solution.reverse_words_manual(test["input"])
+        result_two_pointer = solution.reverse_words_two_pointer(test["input"])
+        print(f"Builtin Result: '{result_builtin}'")
+        print(f"Manual Result: '{result_manual}'")
+        print(f"Two-Pointer Result: '{result_two_pointer}'")
+        print(f"Expected: '{test['expected']}'")
+        assert (
+            result_builtin == result_manual == result_two_pointer == test["expected"]
+        ), f"Test case {i + 1} failed"
 
 
 if __name__ == "__main__":

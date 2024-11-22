@@ -66,6 +66,9 @@ def main():
         return x[1]
     # Sort the list of lists based on the second element of each sublist
     intervals.sort(key=custom_sort)
+    
+    # Sort the list of lists based on the first element of each sublist if second element is the same then sort based on the first
+    intervals.sort(key=lambda x: (x[1], x[0]))
 
     # If the first element of each sublist is the same, sort based on the second element
     intervals.sort(key=lambda x: (x[0], x[1]))
