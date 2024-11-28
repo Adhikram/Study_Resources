@@ -21,8 +21,8 @@ Problem: Track Merchant Account Balance
 -- Calculate daily balances within months
 WITH daily_balances AS (
     SELECT
-        DATE_TRUNC('day', transaction_date) AS transaction_day,
-        DATE_TRUNC('month', transaction_date) AS transaction_month,
+        DATE(transaction_date) AS transaction_day,
+        DATE_FORMAT(transaction_date, '%Y-%m-01') AS transaction_month,
         SUM(CASE 
             WHEN type = 'deposit' THEN amount
             WHEN type = 'withdrawal' THEN -amount
@@ -30,8 +30,8 @@ WITH daily_balances AS (
         END) AS daily_balance
     FROM merchant_transactions
     GROUP BY
-        DATE_TRUNC('day', transaction_date),
-        DATE_TRUNC('month', transaction_date)
+        DATE(transaction_date),
+        DATE_FORMAT(transaction_date, '%Y-%m-01')
 )
 
 -- Calculate running totals with monthly reset
@@ -40,7 +40,6 @@ SELECT
     SUM(daily_balance) OVER (
         PARTITION BY transaction_month
         ORDER BY transaction_day
-        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
     ) AS cumulative_balance
 FROM daily_balances
 ORDER BY transaction_day;
@@ -52,7 +51,7 @@ ORDER BY transaction_day;
 -- 2023-01-03        1250
 
 /* Performance Optimizations:
-1. Used DATE_TRUNC for efficient date grouping
+1. Used DATE for efficient date grouping
 2. Partitioned by month for balance reset
 3. Consider index on (transaction_date, type)
 4. Efficient CASE statement for balance calculation
