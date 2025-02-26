@@ -132,6 +132,41 @@ def knapsack_optimized(weights: List[int], values: List[int], capacity: int) -> 
     return prev[capacity]
 
 
+# 4. Bitmasking Solution
+"""
+Algorithm:
+1. Use bitmasking to iterate through all possible combinations
+2. For each combination:
+   - Calculate total weight and
+   - Update max value if valid
+   Return max value
+   Time Complexity: O(2^N)
+   ce Complexity: O(1)
+   """
+
+
+def knapsack_bitmask(weights: List[int], values: List[int], capacity: int) -> int:
+    n = len(weights)
+    max_value = 0
+
+    # Try all possible combinations using bit masking
+    for mask in range(1 << n):
+        total_weight = 0
+        total_value = 0
+
+        # Check each bit position
+        for i in range(n):
+            if mask & (1 << i):
+                total_weight += weights[i]
+                total_value += values[i]
+
+        # Update max_value if current combination is valid
+        if total_weight <= capacity:
+            max_value = max(max_value, total_value)
+
+    return max_value
+
+
 def main():
     # Test cases
     test_cases = [
@@ -153,6 +188,9 @@ def main():
         )
         print(
             f"Optimized Solution: {knapsack_optimized(test['weights'], test['values'], test['capacity'])}"
+        )
+        print(
+            f"Bitmask Solution: {knapsack_bitmask(test['weights'], test['values'], test['capacity'])}"
         )
 
 
