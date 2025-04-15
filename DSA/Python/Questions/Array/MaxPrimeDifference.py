@@ -20,9 +20,8 @@ from typing import List
 
 class MaxPrimeDifference:
     def get_prime_hash(self, n: int) -> List[int]:
-        prime = [0] * (n + 1)
-        for i in range(2, n + 1):
-            prime[i] = 1
+        prime = [1] * (n + 1)
+        prime[0] = prime[1] = 0
 
         for i in range(2, int(n**0.5) + 1):
             if prime[i]:
