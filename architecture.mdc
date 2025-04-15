@@ -1,0 +1,184 @@
+---
+description: Describes the high-level architecture of the Study Resources repository
+globs: ["**/*.py", "**/*.java", "**/*.js", "**/*.sql"]
+alwaysApply: true
+---
+
+# Study Resources Repository Architecture
+
+## Overview
+This repository serves as a comprehensive collection of computer science study resources, including Data Structures & Algorithms (DSA), System Design, SQL, PySpark, and various programming concepts. The repository is organized into distinct sections, each focusing on specific areas of computer science and software engineering.
+
+## Repository Structure
+```mermaid
+graph TD
+    A[Study Resources] --> B[DSA]
+    A --> C[SQL]
+    A --> D[PySpark]
+    A --> E[Design Patterns]
+    A --> F[LLD Examples]
+    A --> G[Problem Solving]
+    
+    subgraph Algorithms
+        B --> B1[Python]
+        B --> B2[Templates]
+        B1 --> B3[Questions]
+        B3 --> B4[Array]
+        B3 --> B5[LinkedList]
+        B3 --> B6[Trees]
+        B3 --> B7[Other Categories]
+    end
+    
+    subgraph Database
+        C --> C1[Queries]
+        C --> C2[Examples]
+    end
+    
+    subgraph Big Data
+        D --> D1[Examples]
+        D --> D2[Exercises]
+    end
+</mermaid>
+
+## Core Components
+
+### 1. DSA (Data Structures & Algorithms)
+- **Python Implementation (`/DSA/Python/`)**
+  - Organized by data structure categories
+  - Each problem includes:
+    - Problem description
+    - Solution approaches
+    - Time/Space complexity analysis
+    - Example test cases
+  - Templates for common patterns
+  - Comprehensive documentation
+
+### 2. SQL
+- **Query Examples and Exercises**
+  - Practice problems
+  - Optimization techniques
+  - Database design patterns
+
+### 3. PySpark
+- **Big Data Processing Examples**
+  - Data transformation
+  - Analytics queries
+  - Performance optimization
+
+### 4. Design Patterns
+- **Implementation Examples**
+  - Creational Patterns
+  - Structural Patterns
+  - Behavioral Patterns
+  - Best practices and use cases
+
+### 5. Low Level Design (LLD) Examples
+- **Practical Implementations**
+  - System components
+  - Design principles
+  - Code organization
+
+### 6. Problem Solving
+- **General Programming Challenges**
+  - Algorithm implementations
+  - Optimization techniques
+  - Real-world applications
+
+## Code Organization Guidelines
+
+### 1. Problem Solutions Structure
+✅ **DO:**
+- Include clear problem statements
+- Document multiple solution approaches
+- Analyze time and space complexity
+- Add example test cases
+- Include explanatory comments
+
+❌ **DON'T:**
+- Skip complexity analysis
+- Leave solutions unexplained
+- Mix different problem categories
+- Duplicate solutions
+
+### 2. Documentation Standards
+✅ **DO:**
+- Use consistent documentation format
+- Include problem links/sources
+- Explain core algorithms
+- Document edge cases
+- Add usage examples
+
+❌ **DON'T:**
+- Skip problem descriptions
+- Leave unclear variable names
+- Omit test cases
+- Ignore edge cases
+
+### 3. Code Quality
+✅ **DO:**
+- Follow language-specific style guides
+- Use meaningful variable names
+- Include type hints (where applicable)
+- Write modular, reusable code
+- Implement proper error handling
+
+❌ **DON'T:**
+- Write unclear code
+- Skip input validation
+- Ignore code organization
+- Mix different coding styles
+
+## File Structure Example
+```
+.
+├── DSA/
+│   ├── Python/
+│   │   ├── Questions/
+│   │   │   ├── Array/
+│   │   │   ├── LinkedList/
+│   │   │   └── Trees/
+│   │   └── Templates/
+├── SQL/
+│   ├── Queries/
+│   └── Examples/
+├── PySpark/
+│   ├── Examples/
+│   └── Exercises/
+├── DesignPatterns/
+├── LLDExamples/
+└── ProblemSolving/
+```
+
+## Best Practices
+1. Follow consistent file naming conventions
+2. Maintain clear directory structure
+3. Include comprehensive documentation
+4. Add test cases for validation
+5. Use proper error handling
+6. Follow language-specific conventions
+7. Keep solutions modular and reusable
+8. Document time and space complexity
+
+## Development Guidelines
+
+### Solution Implementation
+- Start with problem understanding
+- Consider multiple approaches
+- Optimize for both time and space
+- Include example usage
+- Add proper documentation
+
+### Code Review Process
+1. Verify solution correctness
+2. Check complexity analysis
+3. Review documentation
+4. Validate test cases
+5. Ensure code quality
+
+### Documentation Requirements
+- Problem statement
+- Approach explanation
+- Complexity analysis
+- Example usage
+- Edge cases
+- Test cases 

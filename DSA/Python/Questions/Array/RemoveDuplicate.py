@@ -35,6 +35,16 @@ class RemoveDuplicate:
             start += 1
 
         return result
+    def removeDuplicatesOP(self, nums: List[int]) -> int:
+        start = 1
+        index = 0
+        n = len(nums)
+        while start < n :
+            if nums[start] != nums[index]:
+                nums[index + 1] = nums[start]
+                index += 1
+            start += 1
+        return index + 1
 
 
 def main():
@@ -43,7 +53,9 @@ def main():
     result = solution.remove_duplicates(nums)
     print(f"Length after removing duplicates: {result}")
     print(f"Array after removing duplicates: {nums[:result]}")
-
+    nums = [1, 1, 2]
+    print(f"Length after removing duplicates: {solution.removeDuplicatesOP(nums)}")
+    print(f"Array after removing duplicates: {nums[:result]}")
 
 if __name__ == "__main__":
     main()
